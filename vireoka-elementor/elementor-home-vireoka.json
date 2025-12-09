@@ -1,0 +1,457 @@
+{
+  "version": "0.4",
+  "title": "Vireoka Homepage Teaser",
+  "type": "page",
+  "content": [
+    {
+      "id": "hero_section",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "structure": "20",
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "hero_column",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "hero_badge",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "THE AI-AGENT COMPANY",
+                "html_tag": "h5",
+                "align": "center",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "px", "size": 14 },
+                "title_color": "#9CA3AF"
+              }
+            },
+            {
+              "id": "hero_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Vireoka — a new era of AI-agent ecosystems.",
+                "html_tag": "h1",
+                "align": "center",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "px", "size": 42 },
+                "title_color": "#F9FAFB"
+              }
+            },
+            {
+              "id": "hero_subheading",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align:center;color:#9CA3AF;font-size:16px;'>We are building intelligent multi-agent systems that transform communication, creativity, cloud efficiency, finance and human connection — all powered by one shared agent cloud.</p>"
+              }
+            },
+            {
+              "id": "hero_buttons",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Get Early Access",
+                "align": "center",
+                "size": "lg",
+                "button_type": "success",
+                "background_color": "#E4B448",
+                "color": "#020617",
+                "border_radius": { "unit": "px", "top": "999", "right": "999", "bottom": "999", "left": "999", "isLinked": true }
+              }
+            },
+            {
+              "id": "hero_secondary_link",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align:center;margin-top:8px;font-size:13px;color:#9CA3AF;'><a href='#vireoka-products' style='color:#3AF4D3;'>Learn more about the product universe ↓</a></p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "what_is_vireoka",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "40", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "what_is_vireoka_column",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "what_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What is Vireoka?",
+                "html_tag": "h2",
+                "align": "center",
+                "title_color": "#F9FAFB",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "px", "size": 30 }
+              }
+            },
+            {
+              "id": "what_text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='max-width:720px;margin:12px auto 0;text-align:center;color:#9CA3AF;font-size:15px;'>Vireoka builds AI-agent ecosystems that reinvent how humans communicate, create, collaborate and navigate complex digital systems. Our mission: to let small teams and individuals command the power of a hundred experts through intelligent, aligned agents.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "product_universe",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "id": "vireoka-products",
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "40", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "product_heading_col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "product_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "The Vireoka Product Universe",
+                "html_tag": "h2",
+                "align": "center",
+                "title_color": "#F9FAFB"
+              }
+            },
+            {
+              "id": "product_subheading",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align:center;color:#9CA3AF;font-size:14px;'>Six breakthrough products, one shared Agent Cloud. This is a teaser of what is coming.</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "product_grid_section",
+          "elType": "section",
+          "isInner": true,
+          "settings": {
+            "layout": "boxed"
+          },
+          "elements": [
+            {
+              "id": "grid_row_1",
+              "elType": "column",
+              "settings": { "_column_size": 100 },
+              "elements": [
+                {
+                  "id": "grid_inner",
+                  "elType": "section",
+                  "isInner": true,
+                  "settings": {
+                    "layout": "boxed",
+                    "columns": "3"
+                  },
+                  "elements": [
+                    {
+                      "id": "prod1_col",
+                      "elType": "column",
+                      "settings": { "_column_size": 33 },
+                      "elements": [
+                        {
+                          "id": "prod1_heading",
+                          "elType": "widget",
+                          "widgetType": "heading",
+                          "settings": {
+                            "title": "AtmaSphere LLM",
+                            "html_tag": "h3",
+                            "title_color": "#F9FAFB",
+                            "typography_typography": "custom",
+                            "typography_font_size": { "unit": "px", "size": 20 }
+                          }
+                        },
+                        {
+                          "id": "prod1_text",
+                          "elType": "widget",
+                          "widgetType": "text-editor",
+                          "settings": {
+                            "editor": "<p style='color:#9CA3AF;font-size:13px;'>The intelligence engine behind Vireoka — a context-rich, agent-native LLM engineered for multi-domain reasoning.</p>"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "prod2_col",
+                      "elType": "column",
+                      "settings": { "_column_size": 33 },
+                      "elements": [
+                        {
+                          "id": "prod2_heading",
+                          "elType": "widget",
+                          "widgetType": "heading",
+                          "settings": {
+                            "title": "Communication Suite",
+                            "html_tag": "h3",
+                            "title_color": "#F9FAFB",
+                            "typography_typography": "custom",
+                            "typography_font_size": { "unit": "px", "size": 20 }
+                          }
+                        },
+                        {
+                          "id": "prod2_text",
+                          "elType": "widget",
+                          "widgetType": "text-editor",
+                          "settings": {
+                            "editor": "<p style='color:#9CA3AF;font-size:13px;'>AI-guided coaching for communication, debate, storytelling and influence across business and education.</p>"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "prod3_col",
+                      "elType": "column",
+                      "settings": { "_column_size": 33 },
+                      "elements": [
+                        {
+                          "id": "prod3_heading",
+                          "elType": "widget",
+                          "widgetType": "heading",
+                          "settings": {
+                            "title": "Dating Platform Builder",
+                            "html_tag": "h3",
+                            "title_color": "#F9FAFB",
+                            "typography_typography": "custom",
+                            "typography_font_size": { "unit": "px", "size": 20 }
+                          }
+                        },
+                        {
+                          "id": "prod3_text",
+                          "elType": "widget",
+                          "widgetType": "text-editor",
+                          "settings": {
+                            "editor": "<p style='color:#9CA3AF;font-size:13px;'>Launch highly curated, invitation-only dating and community platforms for specific niches in record time.</p>"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "grid_row_2",
+              "elType": "column",
+              "settings": { "_column_size": 100 },
+              "elements": [
+                {
+                  "id": "grid_inner2",
+                  "elType": "section",
+                  "isInner": true,
+                  "settings": {
+                    "layout": "boxed",
+                    "columns": "3"
+                  },
+                  "elements": [
+                    {
+                      "id": "prod4_col",
+                      "elType": "column",
+                      "settings": { "_column_size": 33 },
+                      "elements": [
+                        {
+                          "id": "prod4_heading",
+                          "elType": "widget",
+                          "widgetType": "heading",
+                          "settings": {
+                            "title": "Memoir Studio",
+                            "html_tag": "h3",
+                            "title_color": "#F9FAFB",
+                            "typography_typography": "custom",
+                            "typography_font_size": { "unit": "px", "size": 20 }
+                          }
+                        },
+                        {
+                          "id": "prod4_text",
+                          "elType": "widget",
+                          "widgetType": "text-editor",
+                          "settings": {
+                            "editor": "<p style='color:#9CA3AF;font-size:13px;'>Turn life stories, weddings, graduations and celebrations of life into stunning, AI-designed coffee-table books.</p>"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "prod5_col",
+                      "elType": "column",
+                      "settings": { "_column_size": 33 },
+                      "elements": [
+                        {
+                          "id": "prod5_heading",
+                          "elType": "widget",
+                          "widgetType": "heading",
+                          "settings": {
+                            "title": "FinOps AI",
+                            "html_tag": "h3",
+                            "title_color": "#F9FAFB",
+                            "typography_typography": "custom",
+                            "typography_font_size": { "unit": "px", "size": 20 }
+                          }
+                        },
+                        {
+                          "id": "prod5_text",
+                          "elType": "widget",
+                          "widgetType": "text-editor",
+                          "settings": {
+                            "editor": "<p style='color:#9CA3AF;font-size:13px;'>Autonomous analysis and optimization of cloud infrastructure to dramatically reduce spend and improve reliability.</p>"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "prod6_col",
+                      "elType": "column",
+                      "settings": { "_column_size": 33 },
+                      "elements": [
+                        {
+                          "id": "prod6_heading",
+                          "elType": "widget",
+                          "widgetType": "heading",
+                          "settings": {
+                            "title": "Quantum-Secure Stablecoin",
+                            "html_tag": "h3",
+                            "title_color": "#F9FAFB",
+                            "typography_typography": "custom",
+                            "typography_font_size": { "unit": "px", "size": 20 }
+                          }
+                        },
+                        {
+                          "id": "prod6_text",
+                          "elType": "widget",
+                          "widgetType": "text-editor",
+                          "settings": {
+                            "editor": "<p style='color:#9CA3AF;font-size:13px;'>A radically secure, institution-grade stablecoin architecture designed for a post-quantum financial future.</p>"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "why_agents",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "40", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "why_agents_col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "why_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Why AI Agents?",
+                "html_tag": "h2",
+                "align": "center",
+                "title_color": "#F9FAFB"
+              }
+            },
+            {
+              "id": "why_text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='max-width:740px;margin:10px auto 0;text-align:center;color:#9CA3AF;font-size:14px;'>Traditional AI tools help with individual tasks. AI agents help you achieve outcomes. Vireoka is built as an intelligent nervous system: specialized agents that collaborate, reason and adapt across communication, creativity, infrastructure and finance — all orchestrated by a shared Agent Cloud.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waitlist",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "60", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "waitlist_col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "waitlist_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Join the Vireoka waitlist",
+                "html_tag": "h2",
+                "align": "center",
+                "title_color": "#F9FAFB"
+              }
+            },
+            {
+              "id": "waitlist_text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align:center;color:#9CA3AF;font-size:14px;'>Founders, creators, students, enterprises and institutions — get early access to the first wave of Vireoka launches.</p>"
+              }
+            },
+            {
+              "id": "waitlist_form_placeholder",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align:center;color:#9CA3AF;font-size:13px;'>[Embed your email form / Mailchimp / ConvertKit shortcode here]</p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

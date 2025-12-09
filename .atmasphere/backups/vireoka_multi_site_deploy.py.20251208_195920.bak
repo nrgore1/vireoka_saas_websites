@@ -1,0 +1,69 @@
+import base64
+import json
+import requests
+# Configure your sites here:
+SITES = [
+    {
+        "name": "Vireoka Corporate Hub",
+        "url": "https://vireoka.com",
+        "username": "admin",
+        "app_password": "YOUR_APP_PASSWORD_FOR_VIREOKA_COM",
+        "variant": "A",
+    },
+    {
+        "name": "AtmaSphere Developer Hub",
+        "url": "https://developers.vireoka.com",
+        "username": "admin",
+        "app_password": "YOUR_APP_PASSWORD_FOR_DEVELOPERS",
+        "variant": "B",
+    },
+    {
+        "name": "FinOps / Cloud Cost Hub",
+        "url": "https://finops.vireoka.com",
+        "username": "admin",
+        "app_password": "YOUR_APP_PASSWORD_FOR_FINOPS",
+        "variant": "C",
+    },
+    {
+        "name": "Consumer Experiences Hub",
+        "url": "https://experiences.vireoka.com",
+        "username": "admin",
+        "app_password": "YOUR_APP_PASSWORD_FOR_EXPERIENCES",
+        "variant": "D",
+    },
+]
+def trigger_site(site):
+    name = site["name"]
+    url = site["url"].rstrip("/")
+    user = site["username"]
+    app_pw = site["app_password"]
+    variant = site["variant"].upper()
+print(f"\n=== Deploying {name} ({url}) as variant {variant} ===")
+auth_str = f"{user}:{app_pw}"
+    token = base64.b64encode(auth_str.encode("utf-8")).decode("utf-8")
+headers = {
+        "Authorization": f"Basic {token}",
+        "Content-Type": "application/json",
+    }
+endpoint = f"{url}/wp-json/vireoka/v1/generate"
+    payload = {"variant": variant}
+try:
+        resp = requests.post(endpoint, headers=headers, data=json.dumps(payload), timeout=30)
+    except Exception as e:
+        print(f"[ERROR] Request failed: {e}")
+        return
+if resp.status_code not in (200, 201):
+        print(f"[ERROR] HTTP {resp.status_code}: {resp.text}")
+        return
+data = resp.json()
+    if not data.get("ok"):
+        print(f"[ERROR] Response: {data}")
+        return
+print(f"[OK] Variant {variant} generated.")
+    for key, pid in data.get("pages", {}).items():
+        print(f"  - {key}: page ID {pid}")
+def main():
+    for site in SITES:
+        trigger_site(site)
+if __name__ == "__main__":
+    main()

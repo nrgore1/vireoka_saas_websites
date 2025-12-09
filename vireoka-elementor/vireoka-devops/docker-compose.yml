@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: vireoka_db
+      MYSQL_USER: vireoka
+      MYSQL_PASSWORD: vireoka_pass
+      MYSQL_ROOT_PASSWORD: root_pass
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:php8.2-apache
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: vireoka_db
+      WORDPRESS_DB_USER: vireoka
+      WORDPRESS_DB_PASSWORD: vireoka_pass
+    volumes:
+      - ./wp-data:/var/www/html
+
+volumes:
+  db_data:

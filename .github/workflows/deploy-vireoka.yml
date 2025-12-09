@@ -1,0 +1,36 @@
+name: Deploy Vireoka Plugins to Hostinger
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'vireoka-branding/**'
+      - 'vireoka-ui-kit/**'
+      - 'vireoka-website-creator/**'
+      - '.github/workflows/deploy-vireoka.yml'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+- name: Create plugin archives
+        run: |
+          zip -r vireoka-branding.zip vireoka-branding
+          zip -r vireoka-ui-kit.zip vireoka-ui-kit
+          zip -r vireoka-website-creator.zip vireoka-website-creator
+- name: Upload via SFTP to Hostinger
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          password: ${{ secrets.HOSTINGER_PASS }}
+          port: 22
+          source: |
+            vireoka-branding/*
+            vireoka-ui-kit/*
+            vireoka-website-creator/*
+          target: ${{ secrets.HOSTINGER_WP_PLUGIN_PATH }}
+# OPTIONAL: Clear cache by touching a file or hitting a webhook
+      # - name: Clear Cache (if using LiteSpeed or similar)
+      #   run: echo "Implement cache clear if needed"

@@ -1,0 +1,22 @@
+{
+  "vireoka-ui-kit.php": "69351cc971eb327cd1199c935dd8a4390624eb3829c8b8db6c06f7309e27b72d",
+  "assets/css/vireoka-ui.css": "89151ccc03689cecc6ce7906fb5559827e92d88780cea84fbae9543e27feb370",
+  "vireoka-website-creator.php": "bd81ade7f7fbfbd4b3ed45882cdf972517cebdb453565380f23ec7ca4a5c7945",
+  "vireoka_site_agent_trigger.py": "2c63075467b6473803715fb8c836b97945efb95ac41f4ff59616cd669c632862",
+  "vireoka_multi_site_deploy.py": "a1235f4ba91578132e0a623e75de63cf0bcd7cb7c02aebec049a9e8a50d54640",
+  ".github/workflows/deploy-vireoka.yml": "e96a393e20fc11bb0d560d5d152e2f15ca8fe8767ffbb00f051fe5312e3dadf2",
+  "vireoka-agent-chat/vireoka-agent-chat.php": "163f35af7270faa414ddc5b2927289266d55aea82ecce0d14cb8493d0b4d9fa8",
+  "vireoka-agent-chat/assets/css/chat.css": "3204f589d37c5bc16afd37cb8d48c8527481c418bbdded36a0269ea84e56f45d",
+  "vireoka-agent-chat/assets/js/chat.js": "c6ac9e8fb6e9af3a4951cb777364dbff839f6b4493215a9f19b5fdfa9e530c73",
+  "> vireoka-ui-kit/assets/css/vireoka-ui.css": "19ad7697ae92230cf070b83e6ac3b7f5415041e7c37042f67b4a443f37ab4a4c",
+  "bootstrap.sh": "209079e66f9470a23f6849d49a716f0a4eb3dd47348b97840b4e15057c982dcd",
+  "deploy_plugins_sftp.sh": "e4231416a62c711c93539556be111524a99195cbefd712d69b01dd58128d7a74",
+  "remote_wp_setup.sh": "db35623724da04ae0dfc9c8d29a1b46aecc57bdf11070772f9a7bd3066424c00",
+  ".github/workflows/vireoka-bootstrap.yml": "eff0cab3c56cf917bb01cb99aed8afe2fddab7fb7cf93903b0ec7b8312101c68",
+  "vireoka_website_orchestrator.json": "3b947aca92629354b56d1b856276652b841abde9a1b08bf625aba6e00c6fad1a",
+  "vireoka_website_orchestrator.yaml": "bf3056bf39faac19cb0374bc85fd43f1db4361ab8847d94046c2a2eab5133c20",
+  "sites.csv": "2dbdc4609e50b71b7f8c5cbedefb091886ef00fd8dd3d11d331cf4565a39dc86",
+  "vireoka_mass_generate.py": "510013d53c27d5bafa16b595716a6054331f127e3b469bf4d9b3fb6c920438f7",
+  "vireoka-chat-injector/vireoka-chat-injector.php": "d03c460d5feef29078ebdb068f1fa59a1d4cdcd08087352f4b5b2f6ca6029c1b",
+  "vireoka-multilingual/vireoka-multilingual.php": "1969693be94e7ae06070e1e040aab8ddd7c7456ff93f983c8fc67edbf25c5dad"
+}

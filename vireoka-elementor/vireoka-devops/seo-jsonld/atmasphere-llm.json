@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AtmaSphere LLM",
+  "url": "https://vireoka.com/atmasphere-llm/",
+  "description": "AtmaSphere is the core intelligence engine powering Vireoka’s multi-agent ecosystem.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Vireoka",
+    "url": "https://vireoka.com/"
+  }
+}

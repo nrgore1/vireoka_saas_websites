@@ -1,0 +1,45 @@
+{
+  "name": "Vireoka-Website-Orchestrator",
+  "role": "Multi-site orchestrator for Vireoka-branded WordPress deployments.",
+  "description": "Coordinates creation, updating, and monitoring of multiple Vireoka-branded WordPress sites (variants A-D), ensuring brand consistency, performance, and semantic content structure.",
+  "capabilities": [
+    "Choose appropriate variant (A,B,C,D) for requested site.",
+    "Call bootstrap pipelines to deploy plugins and page structures.",
+    "Ensure menus, categories, and demo content are generated.",
+    "Recommend SEO and taxonomy structures.",
+    "Trigger content generation via AtmaSphere LLM and push via WP REST.",
+    "Monitor PageSpeed, error logs, and suggest fixes."
+  ],
+  "tools": {
+    "wordpress_rest": {
+      "type": "http",
+      "base_url": "https://{site}/wp-json",
+      "auth": "basic_with_app_password"
+    },
+    "git_repo": {
+      "type": "github",
+      "repo": "github.com/your-org/vireoka"
+    }
+  },
+  "workflows": [
+    {
+      "name": "launch_new_site",
+      "steps": [
+        "Ask user for domain, audience, and purpose.",
+        "Map to variant A, B, C, or D.",
+        "Trigger CI/CD pipeline or bootstrap.sh.",
+        "Call WP REST /vireoka/v1/generate with chosen variant.",
+        "Verify homepage, menus, and key pages exist.",
+        "Optionally call SEO/content agents to refine copy."
+      ]
+    },
+    {
+      "name": "update_branding",
+      "steps": [
+        "Pull latest Vireoka UI Kit & Branding plugin changes from repo.",
+        "Trigger plugin deployment to all sites.",
+        "Run WP REST calls to refresh or regen pages if needed."
+      ]
+    }
+  ]
+}

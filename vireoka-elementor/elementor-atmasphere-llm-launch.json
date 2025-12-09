@@ -1,0 +1,246 @@
+{
+  "version": "0.4",
+  "title": "AtmaSphere LLM Launch",
+  "type": "page",
+  "content": [
+    {
+      "id": "atm_hero",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "80", "right": "0", "bottom": "80", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "atm_hero_col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "atm_badge",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "INTRODUCING ATMASPHERE",
+                "html_tag": "h5",
+                "align": "center",
+                "title_color": "#9CA3AF",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "px", "size": 14 }
+              }
+            },
+            {
+              "id": "atm_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "A new kind of intelligence. Built for a new kind of world.",
+                "html_tag": "h1",
+                "align": "center",
+                "title_color": "#F9FAFB",
+                "typography_typography": "custom",
+                "typography_font_size": { "unit": "px", "size": 38 }
+              }
+            },
+            {
+              "id": "atm_subheading",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='max-width:700px;margin:12px auto 0;text-align:center;color:#9CA3AF;font-size:15px;'>AtmaSphere is the intelligence engine behind Vireoka’s multi-agent ecosystem. It is designed to reason, adapt and collaborate across communication, creativity, cloud optimization, relationships and digital finance — without overwhelming you with complexity.</p>"
+              }
+            },
+            {
+              "id": "atm_cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Request Early Access to AtmaSphere",
+                "align": "center",
+                "size": "lg",
+                "background_color": "#E4B448",
+                "color": "#020617",
+                "border_radius": { "unit": "px", "top": "999", "right": "999", "bottom": "999", "left": "999", "isLinked": true }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atm_what_is",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "40", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "atm_what_col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "atm_what_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What is AtmaSphere?",
+                "html_tag": "h2",
+                "align": "left",
+                "title_color": "#F9FAFB"
+              }
+            },
+            {
+              "id": "atm_what_text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color:#9CA3AF;font-size:14px;'>AtmaSphere is Vireoka’s flagship intelligence layer — a large-scale, multi-domain system that powers the agent ecosystems across all of our products. Rather than being a simple chatbot or a single-purpose model, AtmaSphere is designed to coordinate specialized AI agents and support rich, high-context human interaction.</p><p style='color:#9CA3AF;font-size:14px;margin-top:10px;'>We built AtmaSphere to understand nuance, work with uncertainty, and help humans move from scattered tasks to meaningful outcomes.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atm_diff",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "40", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "atm_diff_col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "atm_diff_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What makes AtmaSphere different?",
+                "html_tag": "h2",
+                "align": "left",
+                "title_color": "#F9FAFB"
+              }
+            },
+            {
+              "id": "atm_diff_list",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<ul style='color:#9CA3AF;font-size:14px;line-height:1.6;'><li><strong>Intelligence with a point of view</strong> – AtmaSphere is guided by principles of clarity, empathy and reasoned decision-making, rather than raw completion.</li><li><strong>Built for human + AI collaboration</strong> – It is designed to orchestrate teams of agents and work alongside you, not just answer isolated prompts.</li><li><strong>Multi-domain by design</strong> – From communication and design to cloud optimization and financial logic, AtmaSphere can operate across many domains within a unified framework.</li><li><strong>Alignment and trust at the core</strong> – The system is developed with safety, transparency and stability as first-class goals.</li></ul>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atm_use_cases",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "40", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "atm_use_col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "atm_use_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Where you will experience AtmaSphere",
+                "html_tag": "h2",
+                "align": "left",
+                "title_color": "#F9FAFB"
+              }
+            },
+            {
+              "id": "atm_use_text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='color:#9CA3AF;font-size:14px;'>AtmaSphere quietly powers the agents and interactions across the Vireoka ecosystem, including:</p><ul style='color:#9CA3AF;font-size:14px;line-height:1.6;'><li>AI-guided communication and debate coaching</li><li>Memoir and coffee-table book creation</li><li>Niche dating and relationship platforms</li><li>Cloud cost and architecture optimization</li><li>Creative and strategic workflows for founders and teams</li><li>Emerging financial experiences, including quantum-secure stablecoin rails</li></ul>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "atm_cta_section",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": { "unit": "px", "top": "40", "right": "0", "bottom": "80", "left": "0", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "atm_cta_col",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "atm_cta_heading2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Stay close to the AtmaSphere launch.",
+                "html_tag": "h2",
+                "align": "center",
+                "title_color": "#F9FAFB"
+              }
+            },
+            {
+              "id": "atm_cta_text2",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align:center;color:#9CA3AF;font-size:14px;'>We are inviting a limited number of partners, enterprises and builders into the earliest waves of AtmaSphere access.</p>"
+              }
+            },
+            {
+              "id": "atm_cta_button2",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Request early access",
+                "align": "center",
+                "size": "lg",
+                "background_color": "#E4B448",
+                "color": "#020617",
+                "border_radius": { "unit": "px", "top": "999", "right": "999", "bottom": "999", "left": "999", "isLinked": true }
+              }
+            },
+            {
+              "id": "atm_form_placeholder",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align:center;color:#9CA3AF;font-size:12px;margin-top:10px;'>[Place your signup / CRM form shortcode here to capture AtmaSphere interest.]</p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

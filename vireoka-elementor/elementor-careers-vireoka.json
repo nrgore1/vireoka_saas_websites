@@ -1,0 +1,78 @@
+{
+  "version": "0.4",
+  "title": "Vireoka Careers",
+  "type": "page",
+  "content": [
+    {
+      "id": "careers_hero",
+      "elType": "section",
+      "settings": {
+        "background_color": "#020617",
+        "padding": {"unit":"px","top":"80","bottom":"60"}
+      },
+      "elements": [
+        {
+          "id": "careers_col",
+          "elType": "column",
+          "settings": {"_column_size":100},
+          "elements": [
+            {
+              "id": "careers_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Join Vireoka",
+                "align": "center",
+                "title_color": "#F9FAFB",
+                "typography_font_size": {"unit":"px","size":42}
+              }
+            },
+            {
+              "id": "careers_text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style='text-align:center;color:#9CA3AF;'>We build AI-agent ecosystems that change the world. If you're driven by design, intelligence, and impact — you belong here.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "careers_open_roles",
+      "elType": "section",
+      "settings": {
+        "background_color": "#020617",
+        "padding":{"unit":"px","top":"40","bottom":"40"}
+      },
+      "elements": [
+        {
+          "id":"careers_roles_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id": "roles_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Open Roles",
+                "title_color": "#F9FAFB",
+                "html_tag": "h2"
+              }
+            },
+            {
+              "id":"roles_grid",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor": "<div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;'><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:#fff;margin:0;'>AI Engineer</h3><p style='color:#9CA3AF;font-size:13px;'>Multi-agent systems, embeddings, orchestration, LLM tuning.</p></div><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:#fff;margin:0;'>Frontend Engineer</h3><p style='color:#9CA3AF;font-size:13px;'>React, Next.js, motion design, agent UI interfaces.</p></div><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:#fff;margin:0;'>Product Designer</h3><p style='color:#9CA3AF;font-size:13px;'>Neural Luxe UI, agent flows, storytelling aesthetics.</p></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# -------------------------
+# 1. If NOT running inside WSL, re-launch inside WSL Ubuntu
+# -------------------------
+if ! grep -qi "microsoft" /proc/version 2>/dev/null; then
+    echo "Ì¥Ñ Not inside WSL. Relaunching patcher inside WSL Ubuntu..."
+    wsl bash -ic "./run_patcher $*"
+    exit $?
+fi
+
+echo "Ì∞ß Running inside WSL Ubuntu."
+
+# -------------------------
+# 2. Ensure Python3 is installed
+# -------------------------
+if ! command -v python3 &>/dev/null; then
+    echo "‚ö†Ô∏è  Python3 not found. Installing Python3 & pip..."
+    sudo apt update && sudo apt install -y python3 python3-pip
+fi
+
+# -------------------------
+# 3. Run the patcher with all arguments forwarded
+# -------------------------
+echo "Ì∫Ä Executing AtmaSphere Patcher..."
+python3 atmasphere_patcher.py --force "$@"

@@ -1,0 +1,207 @@
+/* Vireoka Global UI Tokens */
+:root {
+  --vk-bg: #020617;
+  --vk-bg-soft: #0B1220;
+  --vk-text: #9CA3AF;
+  --vk-heading: #F9FAFB;
+  --vk-link: #3AF4D3;
+  --vk-link-hover: #E4B448;
+  --vk-accent: #E4B448;
+  --vk-accent-2: #5A2FE3;
+  --vk-accent-3: #3AF4D3;
+  --vk-radius-lg: 18px;
+  --vk-radius-pill: 999px;
+  --vk-shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+  --vk-font-heading: "Inter Tight", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --vk-font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+/* Base text (non-destructive: only applies where elements use VK classes) */
+.vk-text,
+.vk-section,
+.vk-agent-card,
+.vk-feature-card,
+.vk-cta,
+.vk-chat-bubble-row {
+  font-family: var(--vk-font-body);
+  color: var(--vk-text);
+}
+/* Buttons */
+.vk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.4rem;
+  font-family: var(--vk-font-body);
+  font-size: 0.95rem;
+  border-radius: var(--vk-radius-pill);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.18s ease-out;
+  white-space: nowrap;
+}
+.vk-btn-primary {
+  background: var(--vk-accent);
+  color: var(--vk-bg);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+.vk-btn-primary:hover {
+  background: var(--vk-link-hover);
+  transform: translateY(-1px);
+}
+.vk-btn-ghost {
+  background: transparent;
+  color: var(--vk-heading);
+  border-color: rgba(148,163,184,0.6);
+}
+.vk-btn-ghost:hover {
+  border-color: var(--vk-link);
+  color: var(--vk-link);
+}
+.vk-btn-subtle {
+  background: rgba(15,23,42,0.8);
+  color: var(--vk-heading);
+}
+/* Agent card */
+.vk-agent-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1rem 1.1rem;
+  background: radial-gradient(circle at top left, rgba(90,47,227,0.4), rgba(2,6,23,0.96));
+  border-radius: var(--vk-radius-lg);
+  border: 1px solid rgba(148,163,184,0.35);
+  box-shadow: var(--vk-shadow-soft);
+}
+.vk-agent-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, var(--vk-accent-3), var(--vk-accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vk-bg);
+  font-weight: 600;
+  font-family: var(--vk-font-heading);
+  font-size: 1rem;
+  overflow: hidden;
+}
+.vk-agent-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.vk-agent-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.vk-agent-name {
+  font-family: var(--vk-font-heading);
+  font-size: 1.02rem;
+  color: var(--vk-heading);
+}
+.vk-agent-role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--vk-link);
+}
+.vk-agent-tagline {
+  font-size: 0.85rem;
+  color: var(--vk-text);
+}
+/* CTA section */
+.vk-cta {
+  margin: 2.5rem 0;
+  padding: 0 1rem;
+}
+.vk-cta-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.8rem;
+  border-radius: var(--vk-radius-lg);
+  background: radial-gradient(circle at top left, rgba(90,47,227,0.9), rgba(2,6,23,0.96));
+  border: 1px solid rgba(148,163,184,0.5);
+  box-shadow: var(--vk-shadow-soft);
+  text-align: center;
+}
+.vk-cta-title {
+  font-family: var(--vk-font-heading);
+  color: var(--vk-heading);
+  font-size: 1.6rem;
+  margin-bottom: 0.35rem;
+}
+.vk-cta-text {
+  color: var(--vk-text);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+/* Chat bubbles */
+.vk-chat-bubble-row {
+  display: flex;
+  margin: 0.35rem 0;
+}
+.vk-chat-left {
+  justify-content: flex-start;
+}
+.vk-chat-right {
+  justify-content: flex-end;
+}
+.vk-chat-bubble {
+  max-width: 70%;
+  background: rgba(15,23,42,0.95);
+  border-radius: 18px;
+  border: 1px solid rgba(148,163,184,0.5);
+  padding: 0.55rem 0.75rem;
+}
+.vk-chat-right .vk-chat-bubble {
+  background: linear-gradient(135deg, var(--vk-accent-2), var(--vk-accent-3));
+  color: var(--vk-bg);
+}
+.vk-chat-speaker {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(148,163,184,0.85);
+  margin-bottom: 0.1rem;
+}
+.vk-chat-right .vk-chat-speaker {
+  color: rgba(15,23,42,0.86);
+}
+.vk-chat-text {
+  font-size: 0.88rem;
+}
+/* Feature grid */
+.vk-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.vk-feature-card {
+  background: rgba(15,23,42,0.95);
+  border-radius: var(--vk-radius-lg);
+  border: 1px solid rgba(148,163,184,0.5);
+  padding: 1rem 1.1rem;
+}
+.vk-feature-title {
+  font-family: var(--vk-font-heading);
+  color: var(--vk-heading);
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+.vk-feature-body {
+  font-size: 0.88rem;
+  color: var(--vk-text);
+}
+/* Optional section helpers */
+.vk-section-dark {
+  background: var(--vk-bg);
+  color: var(--vk-text);
+}
+.vk-section-soft {
+  background: var(--vk-bg-soft);
+  color: var(--vk-text);
+}

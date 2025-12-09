@@ -1,0 +1,111 @@
+name: Vireoka Full Bootstrap
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'vireoka-branding/**'
+      - 'vireoka-ui-kit/**'
+      - 'vireoka-website-creator/**'
+      - 'vireoka-agent-chat/**'
+      - '.github/workflows/vireoka-bootstrap.yml'
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+- name: Zip plugins
+        run: |
+          zip -r vireoka-branding.zip vireoka-branding
+          zip -r vireoka-ui-kit.zip vireoka-ui-kit
+          zip -r vireoka-website-creator.zip vireoka-website-creator
+          zip -r vireoka-agent-chat.zip vireoka-agent-chat
+- name: Upload plugins to Hostinger via SFTP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          password: ${{ secrets.HOSTINGER_PASS }}
+          port: 22
+          source: |
+            vireoka-branding/*
+            vireoka-ui-kit/*
+            vireoka-website-creator/*
+            vireoka-agent-chat/*
+          target: ${{ secrets.HOSTINGER_WP_PLUGIN_PATH }}
+- name: Install Python deps
+        run: pip install requests
+- name: Create multi-site deployment script
+        run: |
+          cat << 'PYEOF' > vireoka_multi_site_deploy.py
+          import base64, json, requests, time
+SITES = [
+              {
+                  "name": "Vireoka Corporate",
+                  "url": "https://vireoka.com",
+                  "username": "${{ secrets.WP_USER_ROOT }}",
+                  "app_password": "${{ secrets.WP_APP_PASSWORD_MAIN }}",
+                  "variant": "A",
+              },
+              {
+                  "name": "AtmaSphere Dev Hub",
+                  "url": "https://developers.vireoka.com",
+                  "username": "${{ secrets.WP_USER_ROOT }}",
+                  "app_password": "${{ secrets.WP_APP_PASSWORD_DEV }}",
+                  "variant": "B",
+              },
+              {
+                  "name": "FinOps Hub",
+                  "url": "https://finops.vireoka.com",
+                  "username": "${{ secrets.WP_USER_ROOT }}",
+                  "app_password": "${{ secrets.WP_APP_PASSWORD_FINOPS }}",
+                  "variant": "C",
+              },
+              {
+                  "name": "Consumer Experiences",
+                  "url": "https://experiences.vireoka.com",
+                  "username": "${{ secrets.WP_USER_ROOT }}",
+                  "app_password": "${{ secrets.WP_APP_PASSWORD_EXP }}",
+                  "variant": "D",
+              },
+          ]
+def trigger_site(site):
+              name = site["name"]
+              url = site["url"].rstrip("/")
+              user = site["username"]
+              app_pw = site["app_password"]
+              variant = site["variant"].upper()
+print(f"=== Deploying {name} ({variant}) ===")
+token = base64.b64encode(f"{user}:{app_pw}".encode()).decode()
+              headers = {
+                  "Authorization": f"Basic {token}",
+                  "Content-Type": "application/json",
+              }
+endpoint = f"{url}/wp-json/vireoka/v1/generate"
+              payload = {"variant": variant}
+try:
+                  resp = requests.post(endpoint, headers=headers, json=payload, timeout=45)
+              except Exception as e:
+                  print(f"[ERROR] Network issue: {e}")
+                  return
+if resp.status_code not in (200, 201):
+                  print(f"[HTTP ERROR] {resp.status_code} => {resp.text}")
+                  return
+data = resp.json()
+              if not data.get("ok"):
+                  print(f"[AGENT ERROR] {data}")
+                  return
+print(f"[OK] Variant {variant} deployed for {name}.")
+              for key, pid in data.get("pages", {}).items():
+                  print(f"  - {key}: ID {pid}")
+def main():
+              for s in SITES:
+                  trigger_site(s)
+                  time.sleep(3)
+if __name__ == "__main__":
+              main()
+          PYEOF
+- name: Run multi-site deployment
+        run: python vireoka_multi_site_deploy.py

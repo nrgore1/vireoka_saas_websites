@@ -1,0 +1,7 @@
+name,url,username,app_password,variant
+Vireoka Corporate,https://vireoka.com,admin,APP_PASS_MAIN,A
+AtmaSphere Dev Hub,https://developers.vireoka.com,admin,APP_PASS_DEV,B
+Vireoka FinOps Retail,https://finops-retail.vireoka.com,admin,APP_PASS_FINOPS,C
+Vireoka FinOps SaaS,https://finops-saas.vireoka.com,admin,APP_PASS_FINOPS,C
+Vireoka Love 55+,https://love55.vireoka.com,admin,APP_PASS_EXP,D
+Vireoka Sports Fans Dating,https://sportlove.vireoka.com,admin,APP_PASS_EXP,D

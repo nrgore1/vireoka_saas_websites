@@ -1,0 +1,18 @@
+body {
+  background:#020617;
+  color:#F9FAFB;
+  font-family: Inter, sans-serif;
+}
+h1,h2,h3,h4 {
+  font-family: 'Inter Tight', sans-serif;
+  letter-spacing:-0.02em;
+}
+.neural-gradient {
+  background: linear-gradient(135deg,#5A2FE3,#3AF4D3,#E4B448);
+}
+.card-dark {
+  background:#0B1220;
+  border:1px solid #1F2937;
+  border-radius:16px;
+  padding:20px;
+}
