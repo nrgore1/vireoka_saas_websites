@@ -1,0 +1,32 @@
+[
+  {
+    "id": "vk-section-home-d",
+    "elType": "section",
+    "settings": {
+      "content_width": "boxed",
+      "background_background": "gradient",
+      "background_color": "#111827",
+      "background_color_b": "#020617",
+      "_css_classes": "vk-section-dark vireoka-hero",
+      "padding": { "unit": "px", "top": "80", "bottom": "80", "isLinked": false }
+    },
+    "elements": [
+      {
+        "id": "vk-column-home-d",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "vk-widget-home-d",
+            "elType": "widget",
+            "widgetType": "shortcode",
+            "settings": {
+              "shortcode": "[vireoka_home style=\"D\" product=\"FinOps AI\"]"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

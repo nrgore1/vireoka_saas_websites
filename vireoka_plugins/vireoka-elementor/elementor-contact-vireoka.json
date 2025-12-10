@@ -1,0 +1,69 @@
+{
+  "version":"0.4",
+  "title":"Contact / Partnerships – Elementor Template",
+  "type":"page",
+  "content":[
+    {
+      "id":"contact_hero",
+      "elType":"section",
+      "settings":{
+        "background_color":"#020617",
+        "padding":{"unit":"px","top":"80","bottom":"60"}
+      },
+      "elements":[
+        {
+          "id":"contact_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"contact_heading",
+              "elType":"widget",
+              "widgetType":"heading",
+              "settings":{
+                "title":"Get in Touch with Vireoka",
+                "html_tag":"h1",
+                "align":"center",
+                "title_color":"#F9FAFB",
+                "typography_font_size":{"unit":"px","size":40}
+              }
+            },
+            {
+              "id":"contact_sub",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<p style='text-align:center;color:#9CA3AF;font-size:15px;max-width:600px;margin:0 auto;'>Whether you're exploring partnerships, early product access, enterprise collaboration, or investment opportunities, we’d love to hear from you.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id":"contact_form_section",
+      "elType":"section",
+      "settings":{
+        "background_color":"#020617",
+        "padding":{"unit":"px","top":"40","bottom":"80"}
+      },
+      "elements":[
+        {
+          "id":"contact_form_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"contact_placeholder",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<p style='text-align:center;color:#9CA3AF;font-size:14px;'>[Insert your form shortcode here – Fluent Forms, Gravity Forms, or Elementor Forms]</p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

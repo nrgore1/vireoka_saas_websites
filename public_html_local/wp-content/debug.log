@@ -1,0 +1,104 @@
+[09-Dec-2025 22:34:01 UTC] PHP Fatal error:  Uncaught TypeError: array_merge(): Argument #1 must be of type array, null given in /home/u814009065/domains/vireoka.com/public_html/wp-content/plugins/elementor/includes/frontend.php:292
+Stack trace:
+#0 /home/u814009065/domains/vireoka.com/public_html/wp-content/plugins/elementor/includes/frontend.php(292): array_merge()
+#1 /home/u814009065/domains/vireoka.com/public_html/wp-includes/class-wp-hook.php(343): Elementor\Frontend->body_class()
+#2 /home/u814009065/domains/vireoka.com/public_html/wp-includes/plugin.php(205): WP_Hook->apply_filters()
+#3 /home/u814009065/domains/vireoka.com/public_html/wp-includes/post-template.php(866): apply_filters()
+#4 /home/u814009065/domains/vireoka.com/public_html/wp-includes/post-template.php(622): get_body_class()
+#5 /home/u814009065/domains/vireoka.com/public_html/wp-includes/template-canvas.php(20): body_class()
+#6 /home/u814009065/domains/vireoka.com/public_html/wp-includes/template-loader.php(125): include('/home/u81400906...')
+#7 /home/u814009065/domains/vireoka.com/public_html/wp-blog-header.php(19): require_once('/home/u81400906...')
+#8 /home/u814009065/domains/vireoka.com/public_html/index.php(17): require('/home/u81400906...')
+#9 {main}
+  thrown in /home/u814009065/domains/vireoka.com/public_html/wp-content/plugins/elementor/includes/frontend.php on line 292
+[09-Dec-2025 22:35:25 UTC] PHP Parse error:  syntax error, unexpected token "->" in phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/eval-command/src/Eval_Command.php(39) : eval()'d code on line 1
+[09-Dec-2025 22:35:47 UTC] Cron reschedule event error for hook: action_scheduler_run_queue, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
+[09-Dec-2025 22:38:01 UTC] PHP Parse error:  syntax error, unexpected token "->" in phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/eval-command/src/Eval_Command.php(39) : eval()'d code on line 1
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:27:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 00:37:10 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:11:49 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:11:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function set_nav_menu_locations() in /home/u814009065/domains/vireoka.com/public_html/wp-content/plugins/vireoka-home-builder/vireoka-home-builder.php:581
+Stack trace:
+#0 /home/u814009065/domains/vireoka.com/public_html/wp-includes/class-wp-hook.php(341): vireoka_home_ensure_menus()
+#1 /home/u814009065/domains/vireoka.com/public_html/wp-includes/class-wp-hook.php(365): WP_Hook->apply_filters()
+#2 /home/u814009065/domains/vireoka.com/public_html/wp-includes/plugin.php(522): WP_Hook->do_action()
+#3 /home/u814009065/domains/vireoka.com/public_html/wp-admin/includes/plugin.php(703): do_action()
+#4 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/extension-command/src/Plugin_Command.php(386): activate_plugin()
+#5 [internal function]: Plugin_Command->activate()
+#6 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/CommandFactory.php(100): call_user_func()
+#7 [internal function]: WP_CLI\Dispatcher\CommandFactory::WP_CLI\Dispatcher\{closure}()
+#8 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/Subcommand.php(497): call_user_func()
+#9 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(470): WP_CLI\Dispatcher\Subcommand->invoke()
+#10 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(493): WP_CLI\Runner->run_command()
+#11 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1295): WP_CLI\Runner->run_command_and_exit()
+#12 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php(28): WP_CLI\Runner->start()
+#13 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/bootstrap.php(84): WP_CLI\Bootstrap\LaunchRunner->process()
+#14 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/wp-cli.php(35): WP_CLI\bootstrap()
+#15 phar:///usr/local/bin/wp-cli-2.12.0.phar/php/boot-phar.php(20): include('phar:///usr/loc...')
+#16 /usr/local/bin/wp-cli-2.12.0.phar(4): include('phar:///usr/loc...')
+#17 {main}
+  thrown in /home/u814009065/domains/vireoka.com/public_html/wp-content/plugins/vireoka-home-builder/vireoka-home-builder.php on line 581
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Deprecated:  Function get_page_by_title is <strong>deprecated</strong> since version 6.2.0! Use WP_Query instead. in /home/u814009065/domains/vireoka.com/public_html/wp-includes/functions.php on line 6131
+[10-Dec-2025 01:14:26 UTC] PHP Warning:  Object of class WP_Error could not be converted to int in /home/u814009065/domains/vireoka.com/public_html/wp-includes/nav-menu.php on line 422
+[10-Dec-2025 01:14:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function set_nav_menu_locations() in /home/u814009065/domains/vireoka.com/public_html/wp-content/plugins/vireoka-home-builder/vireoka-home-builder.php:581
+Stack trace:
+#0 /home/u814009065/domains/vireoka.com/public_html/wp-includes/class-wp-hook.php(341): vireoka_home_ensure_menus()
+#1 /home/u814009065/domains/vireoka.com/public_html/wp-includes/class-wp-hook.php(365): WP_Hook->apply_filters()
+#2 /home/u814009065/domains/vireoka.com/public_html/wp-includes/plugin.php(522): WP_Hook->do_action()
+#3 /home/u814009065/domains/vireoka.com/public_html/wp-admin/includes/plugin.php(703): do_action()
+#4 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/extension-command/src/Plugin_Command.php(386): activate_plugin()
+#5 [internal function]: Plugin_Command->activate()
+#6 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/CommandFactory.php(100): call_user_func()
+#7 [internal function]: WP_CLI\Dispatcher\CommandFactory::WP_CLI\Dispatcher\{closure}()
+#8 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/Subcommand.php(497): call_user_func()
+#9 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(470): WP_CLI\Dispatcher\Subcommand->invoke()
+#10 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(493): WP_CLI\Runner->run_command()
+#11 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1295): WP_CLI\Runner->run_command_and_exit()
+#12 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php(28): WP_CLI\Runner->start()
+#13 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/bootstrap.php(84): WP_CLI\Bootstrap\LaunchRunner->process()
+#14 phar:///usr/local/bin/wp-cli-2.12.0.phar/vendor/wp-cli/wp-cli/php/wp-cli.php(35): WP_CLI\bootstrap()
+#15 phar:///usr/local/bin/wp-cli-2.12.0.phar/php/boot-phar.php(20): include('phar:///usr/loc...')
+#16 /usr/local/bin/wp-cli-2.12.0.phar(4): include('phar:///usr/loc...')
+#17 {main}
+  thrown in /home/u814009065/domains/vireoka.com/public_html/wp-content/plugins/vireoka-home-builder/vireoka-home-builder.php on line 581

@@ -1,0 +1,69 @@
+{
+  "version":"0.4",
+  "title":"Vireoka Product Suite – Elementor Template",
+  "type":"page",
+  "content":[
+    {
+      "id":"suite_hero",
+      "elType":"section",
+      "settings":{
+        "background_color":"#020617",
+        "padding":{"unit":"px","top":"80","bottom":"60"}
+      },
+      "elements":[
+        {
+          "id":"suite_hero_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"suite_heading",
+              "elType":"widget",
+              "widgetType":"heading",
+              "settings":{
+                "title":"The Vireoka Product Universe",
+                "html_tag":"h1",
+                "align":"center",
+                "title_color":"#F9FAFB",
+                "typography_font_size":{"unit":"px","size":42}
+              }
+            },
+            {
+              "id":"suite_sub",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<p style='text-align:center;color:#9CA3AF;font-size:15px;max-width:700px;margin:0 auto;'>Six breakthrough products powered by one unified agentic intelligence layer. Explore what’s coming.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id":"suite_grid",
+      "elType":"section",
+      "settings":{
+        "background_color":"#020617",
+        "padding":{"unit":"px","top":"40","bottom":"40"}
+      },
+      "elements":[
+        {
+          "id":"grid_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"suite_cards",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;'><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:white;margin:0;'>AtmaSphere LLM</h3><p style='color:#9CA3AF;font-size:13px;'>The core intelligence layer powering Vireoka’s agents.</p></div><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:white;margin:0;'>Communication Suite</h3><p style='color:#9CA3AF;font-size:13px;'>Debate coaching, business clarity, and content acceleration.</p></div><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:white;margin:0;'>Dating Platform Builder</h3><p style='color:#9CA3AF;font-size:13px;'>Launch curated communities with intelligent matchmaking.</p></div><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:white;margin:0;'>Memoir Studio</h3><p style='color:#9CA3AF;font-size:13px;'>AI-designed coffee-table books for life’s biggest moments.</p></div><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:white;margin:0;'>FinOps AI</h3><p style='color:#9CA3AF;font-size:13px;'>Autonomous cloud cost optimization and architecture guidance.</p></div><div style='padding:20px;border:1px solid #1F2937;border-radius:12px;background:#0B1220;'><h3 style='color:white;margin:0;'>Quantum-Secure Stablecoin</h3><p style='color:#9CA3AF;font-size:13px;'>A radically secure currency built for the post-quantum era.</p></div></div>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Vireoka Product Suite",
+  "itemListElement": [
+    { "@type": "Product", "name": "AtmaSphere LLM" },
+    { "@type": "Product", "name": "Communication Suite" },
+    { "@type": "Product", "name": "Dating Platform Builder" },
+    { "@type": "Product", "name": "Memoir Studio" },
+    { "@type": "Product", "name": "FinOps AI" },
+    { "@type": "Product", "name": "Quantum-Secure Stablecoin" }
+  ]
+}

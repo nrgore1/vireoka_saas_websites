@@ -1,0 +1,27 @@
+{
+  "version":"0.4",
+  "title":"Vireoka Header",
+  "type":"header",
+  "content":[
+    {
+      "id":"header_section",
+      "elType":"section",
+      "settings":{"background_color":"#020617","padding":{"unit":"px","top":"10","bottom":"10"}},
+      "elements":[
+        {
+          "id":"header_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"header_logo",
+              "elType":"widget",
+              "widgetType":"heading",
+              "settings":{"title":"Vireoka","title_color":"#F9FAFB","html_tag":"h3"}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

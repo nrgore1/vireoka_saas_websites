@@ -1,0 +1,32 @@
+[
+  {
+    "id": "vk-section-home-a",
+    "elType": "section",
+    "settings": {
+      "content_width": "boxed",
+      "background_background": "gradient",
+      "background_color": "#020617",
+      "background_color_b": "#111827",
+      "_css_classes": "vk-section-dark vireoka-hero",
+      "padding": { "unit": "px", "top": "80", "bottom": "80", "isLinked": false }
+    },
+    "elements": [
+      {
+        "id": "vk-column-home-a",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "vk-widget-home-a",
+            "elType": "widget",
+            "widgetType": "shortcode",
+            "settings": {
+              "shortcode": "[vireoka_home style=\"A\" product=\"AtmaSphere LLM\"]"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

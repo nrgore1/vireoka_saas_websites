@@ -1,0 +1,68 @@
+{
+  "version":"0.4",
+  "title":"Press & Media Kit",
+  "type":"page",
+  "content":[
+    {
+      "id":"press_hero",
+      "elType":"section",
+      "settings":{
+        "background_color":"#020617",
+        "padding":{"unit":"px","top":"80","bottom":"60"}
+      },
+      "elements":[
+        {
+          "id":"press_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"press_heading",
+              "elType":"widget",
+              "widgetType":"heading",
+              "settings":{
+                "title":"Press & Media Kit",
+                "title_color":"#F9FAFB",
+                "align":"center",
+                "typography_font_size":{"unit":"px","size":42}
+              }
+            },
+            {
+              "id":"press_text",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<p style='text-align:center;color:#9CA3AF;'>Brand assets, official descriptions, and approved visuals for journalists, partners, and event organizers.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id":"press_assets",
+      "elType":"section",
+      "settings":{
+        "background_color":"#020617",
+        "padding":{"unit":"px","top":"40","bottom":"40"}
+      },
+      "elements":[
+        {
+          "id":"press_assets_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"press_desc",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<h3 style='color:white;'>Official Company Description</h3><p style='color:#9CA3AF;'>Vireoka is the AI-agent company building interconnected systems for communication, creativity, cloud intelligence, relationship platforms, memoir creation, and quantum-secure finance.</p><h3 style='color:white;'>Logos & Brand Assets</h3><p style='color:#9CA3AF;'>[Upload your brand pack here]</p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

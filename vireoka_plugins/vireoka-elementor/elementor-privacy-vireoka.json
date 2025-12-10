@@ -1,0 +1,27 @@
+{
+  "version":"0.4",
+  "title":"Privacy Policy",
+  "type":"page",
+  "content":[
+    {
+      "id":"privacy_section",
+      "elType":"section",
+      "settings":{"background_color":"#020617","padding":{"unit":"px","top":"40","bottom":"40"}},
+      "elements":[
+        {
+          "id":"privacy_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"privacy_text",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{"editor":"<h2 style='color:white;'>Privacy Policy</h2><p style='color:#9CA3AF;'>We take your privacy seriously...</p>"}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

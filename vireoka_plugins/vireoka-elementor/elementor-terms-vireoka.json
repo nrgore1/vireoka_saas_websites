@@ -1,0 +1,27 @@
+{
+  "version":"0.4",
+  "title":"Terms of Service",
+  "type":"page",
+  "content":[
+    {
+      "id":"terms_section",
+      "elType":"section",
+      "settings":{"background_color":"#020617","padding":{"unit":"px","top":"40","bottom":"40"}},
+      "elements":[
+        {
+          "id":"terms_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"terms_text",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{"editor":"<h2 style='color:white;'>Terms of Service</h2><p style='color:#9CA3AF;'>These terms govern your use of Vireoka services...</p>"}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

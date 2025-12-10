@@ -1,0 +1,117 @@
+{
+  "version": "0.4",
+  "title": "About Vireoka – Elementor Template",
+  "type": "page",
+  "content": [
+    {
+      "id": "about_hero",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#020617",
+        "padding": {"unit":"px","top":"80","right":"0","bottom":"60","left":"0","isLinked":false}
+      },
+      "elements": [
+        {
+          "id": "about_col",
+          "elType": "column",
+          "settings": {"_column_size":100},
+          "elements":[
+            {
+              "id": "about_heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings":{
+                "title":"About Vireoka",
+                "html_tag":"h1",
+                "align":"center",
+                "title_color":"#F9FAFB",
+                "typography_typography":"custom",
+                "typography_font_size":{"unit":"px","size":42}
+              }
+            },
+            {
+              "id":"about_subtext",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<p style='text-align:center;color:#9CA3AF;font-size:15px;max-width:700px;margin:0 auto;'>Vireoka is redefining what is possible with AI by building interconnected systems of specialized agents — capable of communication, creativity, infrastructure optimization, financial modeling, and more. Our mission is to turn small teams into industry-shifting forces.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id":"founding_story",
+      "elType":"section",
+      "settings":{
+        "background_background":"classic",
+        "background_color":"#020617",
+        "padding":{"unit":"px","top":"40","bottom":"40"}
+      },
+      "elements":[
+        {
+          "id":"founding_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"founding_heading",
+              "elType":"widget",
+              "widgetType":"heading",
+              "settings":{
+                "title":"Our Vision",
+                "html_tag":"h2",
+                "title_color":"#F9FAFB"
+              }
+            },
+            {
+              "id":"founding_text",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<p style='color:#9CA3AF;font-size:15px;max-width:760px;margin:12px 0;'>Vireoka was founded on a belief that intelligence shouldn’t sit behind closed doors — it should work beside people. Our multi-agent approach allows AI systems to coordinate, delegate, and reason through complex situations with clarity and precision.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id":"mission_values",
+      "elType":"section",
+      "settings":{
+        "background_color":"#020617",
+        "padding":{"unit":"px","top":"40","bottom":"40"}
+      },
+      "elements":[
+        {
+          "id":"mission_col",
+          "elType":"column",
+          "settings":{"_column_size":100},
+          "elements":[
+            {
+              "id":"mission_heading",
+              "elType":"widget",
+              "widgetType":"heading",
+              "settings":{
+                "title":"What We Stand For",
+                "html_tag":"h2",
+                "title_color":"#F9FAFB"
+              }
+            },
+            {
+              "id":"values_list",
+              "elType":"widget",
+              "widgetType":"text-editor",
+              "settings":{
+                "editor":"<ul style='color:#9CA3AF;font-size:14px;line-height:1.6;'><li><strong>Intelligence with Integrity</strong> – Alignment and human benefit come first.</li><li><strong>Compounding Leverage</strong> – Our agents amplify human potential by coordinating tasks and reasoning across systems.</li><li><strong>Design With Purpose</strong> – Every product solves a real human need, not a technical curiosity.</li><li><strong>Global Empowerment</strong> – We build tools for individuals, creators, students, enterprises, and institutions.</li></ul>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
