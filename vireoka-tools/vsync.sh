@@ -1,97 +1,77 @@
 #!/bin/bash
-#
-#  Vireoka Two-Way Sync v4.0 — Plugins
-# ----------------------------------------
-#  • Detects remote ↔ local changes in plugins
-#  • Syncs only necessary files
-#  • Backs up server before pushing
-#  • Detects conflicts via timestamps
-#  • Writes conflict logs locally + remotely
-#
+set -e
 
-set -euo pipefail
+BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$BASE_DIR/vconfig.sh"
 
-CONFIG_FILE="$(dirname "$0")/vconfig.sh"
-if [[ ! -f "$CONFIG_FILE" ]]; then
-  echo "❌ Missing vconfig.sh — aborting."
-  exit 1
-fi
-source "$CONFIG_FILE"
+MODE="${1:-all}"
 
-echo "🔁  Vireoka Two-Way Sync v4.0 (Plugins)"
-echo "---------------------------------------"
+echo "🔁  VIREOKA TWO-WAY SYNC v5.0"
+echo "=========================================="
+echo "Mode: $MODE"
+echo
 
-TMP_REMOTE="/tmp/vireoka_remote_plugins.txt"
-TMP_LOCAL="/tmp/vireoka_local_plugins.txt"
-REMOTE_SORT="/tmp/vireoka_remote_sorted.txt"
-LOCAL_SORT="/tmp/vireoka_local_sorted.txt"
+notify() {
+  "$BASE_DIR/vsync-notify.sh" "Vireoka Sync ($MODE)" "$1" || true
+}
 
-mkdir -p /tmp
+notify "Starting sync..."
 
-# 1) Remote file list (plugins)
-echo "📡 Reading remote plugin files..."
-ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" \
-  "cd '$REMOTE_PLUGINS' && find . -type f -printf '%P|%T@\\n'" \
-  > "$TMP_REMOTE" || echo "" > "$TMP_REMOTE"
+case "$MODE" in
+  plugins)
+    echo "🔌 SYNC: WordPress Plugins"
+    "$BASE_DIR/vsync-plugins.sh"
+    ;;
+  themes)
+    echo "🎨 SYNC: WordPress Themes"
+    "$BASE_DIR/vsync-themes.sh"
+    ;;
+  uploads)
+    echo "🖼  SYNC: WordPress Uploads"
+    "$BASE_DIR/vsync-uploads.sh"
+    ;;
+  all)
+    echo "🔌 SYNC: WordPress Plugins"
+    "$BASE_DIR/vsync-plugins.sh"
+    echo
+    echo "🎨 SYNC: WordPress Themes"
+    "$BASE_DIR/vsync-themes.sh"
+    echo
+    echo "🖼  SYNC: WordPress Uploads"
+    "$BASE_DIR/vsync-uploads.sh"
+    ;;
+  watch)
+    "$BASE_DIR/vsync-watch.sh"
+    exit 0
+    ;;
+  *)
+    echo "Usage: $0 [plugins|themes|uploads|all|watch]"
+    exit 1
+    ;;
+esac
 
-# 2) Local file list
-echo "💻 Reading local plugin files..."
-cd "$LOCAL_PLUGINS"
-find . -type f -printf "%P|%T@\n" > "$TMP_LOCAL"
+# Git auto-commit + push
+"$BASE_DIR/vsync-git.sh" || true
 
-sort "$TMP_REMOTE" > "$REMOTE_SORT"
-sort "$TMP_LOCAL" > "$LOCAL_SORT"
+# Write local status JSON
+TIMESTAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+mkdir -p "$(dirname "$LOCAL_STATUS")"
 
-# 3) New files on each side
-NEW_REMOTE=$(comm -23 "$REMOTE_SORT" "$LOCAL_SORT" || true)
-NEW_LOCAL=$(comm -13 "$REMOTE_SORT" "$LOCAL_SORT" || true)
+cat > "$LOCAL_STATUS" <<JSON
+{
+  "last_run": "$TIMESTAMP",
+  "mode": "$MODE",
+  "sync_mode": "$SYNC_MODE",
+  "remote_host": "$REMOTE_HOST",
+  "ok": true
+}
+JSON
 
-# 4) Conflicts (same path, different timestamps)
-echo "🔍 Checking for plugin conflicts..."
-CONFLICTS=""
+# Mirror status to remote (best effort)
+ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" "mkdir -p \"$REMOTE_STATUS_DIR\"" || true
+scp -P "$REMOTE_PORT" "$LOCAL_STATUS" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_STATUS" >/dev/null 2>&1 || true
 
-while IFS='|' read -r path_remote ts_remote; do
-  [[ -z "$path_remote" ]] && continue
-  ts_local=$(grep "^$path_remote|" "$LOCAL_SORT" | cut -d'|' -f2 || true)
-  if [[ -n "$ts_local" && "$ts_local" != "$ts_remote" ]]; then
-    CONFLICTS+="$path_remote|$ts_local|$ts_remote"$'\n'
-  fi
-done < "$REMOTE_SORT"
+notify "Completed successfully ✅"
 
-if [[ -n "$CONFLICTS" ]]; then
-  echo "⚠️  Plugin conflicts detected:"
-  echo "$CONFLICTS" | sed 's/|/ → /g'
-
-  echo "$CONFLICTS" > "$LOCAL_CONFLICTS_JSON"
-
-  ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" "mkdir -p '$REMOTE_STATUS_DIR'"
-  printf '%s\n' "$CONFLICTS" | ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" \
-    "cat > '$REMOTE_CONFLICTS_JSON'"
-else
-  echo "✔ No plugin conflicts."
-fi
-
-# 5) Pull from remote → local if remote has new/extra files
-if [[ -n "$NEW_REMOTE" ]]; then
-  echo "⬇️  Remote plugins have updates → pulling..."
-  $RSYNC $EXCLUDES \
-    "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PLUGINS/" \
-    "$LOCAL_PLUGINS/"
-fi
-
-# 6) Push from local → remote if local has new/extra files
-if [[ -n "$NEW_LOCAL" ]]; then
-  echo "⬆️  Local plugins have updates → pushing..."
-
-  "$(dirname "$0")/vbackup.sh"
-
-  $RSYNC $EXCLUDES \
-    "$LOCAL_PLUGINS/" \
-    "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PLUGINS/"
-
-  "$(dirname "$0")/vpost-sync.sh"
-fi
-
-echo "---------------------------------------"
-echo "✔ Plugin two-way sync complete."
-echo "---------------------------------------"
+echo
+echo "✔ Sync complete for mode: $MODE"

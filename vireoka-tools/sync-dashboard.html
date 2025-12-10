@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vireoka Sync Dashboard</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #020617;
+      --bg-alt: #020818;
+      --card: #0b1220;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.16);
+      --danger: #fb7185;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148,163,184,0.35);
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1d2538 0%, #020617 52%, #000 100%);
+      color: var(--text);
+      padding: 32px 20px 40px;
+    }
+    .vk-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin: 0 0 4px;
+    }
+    .vk-subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+    .vk-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr;
+      gap: 16px;
+    }
+    .vk-card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(15,23,42,0.98));
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 16px 18px 18px;
+      box-shadow: 0 18px 55px rgba(15,23,42,0.9);
+    }
+    .vk-card h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+    .vk-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .vk-badge.ok {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .vk-badge.warn {
+      background: rgba(248,250,252,0.04);
+      color: var(--danger);
+      border: 1px solid rgba(248,113,113,0.35);
+    }
+    .vk-kv {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 4px;
+      column-gap: 8px;
+      font-size: 0.86rem;
+      margin-top: 8px;
+    }
+    .vk-kv label {
+      color: var(--muted);
+    }
+    .vk-kv span {
+      color: var(--text);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+    th, td {
+      padding: 6px 8px;
+      text-align: left;
+      border-bottom: 1px solid rgba(31,41,55,0.9);
+    }
+    th {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+    tbody tr:nth-child(even) {
+      background: rgba(15,23,42,0.7);
+    }
+    .vk-pill {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.3);
+      color: var(--muted);
+    }
+    .vk-footer {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .vk-refresh {
+      cursor: pointer;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      color: var(--text);
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .vk-refresh:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .vk-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .vk-dot.warn {
+      background: var(--danger);
+    }
+    .vk-empty {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 800px) {
+      .vk-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="vk-wrap">
+    <h1>Vireoka Sync Dashboard</h1>
+    <div class="vk-subtitle">
+      Live view of local ↔ remote sync state. This page reads <code>./_sync_status/status.json</code> and <code>./_sync_status/conflicts.json</code>.
+    </div>
+
+    <div class="vk-grid">
+      <div class="vk-card" id="status-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+          <h2>Status</h2>
+          <span id="status-badge" class="vk-badge ok"><span class="vk-dot"></span> Clean</span>
+        </div>
+        <div class="vk-kv" id="status-kv">
+          <label>Sync mode</label><span id="kv-mode">–</span>
+          <label>Last plugins sync</label><span id="kv-plugins">–</span>
+          <label>Last themes sync</label><span id="kv-themes">–</span>
+          <label>Last uploads sync</label><span id="kv-uploads">–</span>
+          <label>Last full sync</label><span id="kv-full">–</span>
+          <label>Updated at</label><span id="kv-updated">–</span>
+        </div>
+      </div>
+
+      <div class="vk-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+          <h2>Conflicts</h2>
+          <span class="vk-pill" id="conflict-count-pill">0 files</span>
+        </div>
+        <table id="conflicts-table">
+          <thead>
+            <tr>
+              <th>Path</th>
+              <th>Local mtime</th>
+              <th>Remote mtime</th>
+            </tr>
+          </thead>
+          <tbody id="conflicts-body">
+          </tbody>
+        </table>
+        <div class="vk-empty" id="conflicts-empty">
+          No conflicts detected. Everything looks good. ✨
+        </div>
+      </div>
+    </div>
+
+    <div class="vk-footer">
+      <div>
+        Tip: Place this file in your WordPress root alongside <code>/_sync_status/</code>.<br/>
+        Example: <code>https://vireoka.com/sync-dashboard.html</code>
+      </div>
+      <button class="vk-refresh" onclick="reloadSync()">
+        <span>⟳</span> Refresh data
+      </button>
+    </div>
+  </div>
+
+  <script>
+    async function fetchJson(path) {
+      try {
+        const res = await fetch(path + '?t=' + Date.now());
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return await res.json();
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function fmt(ts) {
+      if (!ts) return '–';
+      try {
+        const d = new Date(ts);
+        if (!isNaN(d.getTime())) {
+          return d.toLocaleString();
+        }
+        if (/^[0-9.]+$/.test(ts)) {
+          const d2 = new Date(parseFloat(ts) * 1000);
+          return d2.toLocaleString();
+        }
+      } catch (e) {}
+      return ts;
+    }
+
+    async function reloadSync() {
+      const status = await fetchJson('./_sync_status/status.json');
+      const conflicts = await fetchJson('./_sync_status/conflicts.json');
+
+      const badge = document.getElementById('status-badge');
+      const modeEl = document.getElementById('kv-mode');
+      const pluginsEl = document.getElementById('kv-plugins');
+      const themesEl = document.getElementById('kv-themes');
+      const uploadsEl = document.getElementById('kv-uploads');
+      const fullEl = document.getElementById('kv-full');
+      const upEl = document.getElementById('kv-updated');
+
+      if (status) {
+        modeEl.textContent = status.mode || 'two-way';
+        pluginsEl.textContent = fmt(status.last_plugins_sync);
+        themesEl.textContent = fmt(status.last_themes_sync);
+        uploadsEl.textContent = fmt(status.last_uploads_sync);
+        fullEl.textContent = fmt(status.last_full_sync || status.timestamp);
+        upEl.textContent = fmt(status.timestamp);
+      } else {
+        modeEl.textContent = 'unknown';
+        pluginsEl.textContent = '–';
+        themesEl.textContent = '–';
+        uploadsEl.textContent = '–';
+        fullEl.textContent = '–';
+        upEl.textContent = 'status.json not found';
+      }
+
+      const tbody = document.getElementById('conflicts-body');
+      const empty = document.getElementById('conflicts-empty');
+      const pill = document.getElementById('conflict-count-pill');
+      tbody.innerHTML = '';
+
+      let conflictList = [];
+      if (conflicts && Array.isArray(conflicts.conflicts)) {
+        conflictList = conflicts.conflicts;
+      } else if (conflicts && typeof conflicts === 'string') {
+        // plain text lines: path|local|remote
+        conflictList = conflicts.split('\n').filter(Boolean).map(line => {
+          const parts = line.split('|');
+          return { path: parts[0], local_mtime: parts[1], remote_mtime: parts[2] };
+        });
+      }
+
+      if (!conflictList.length) {
+        empty.style.display = 'block';
+        pill.textContent = '0 files';
+        badge.classList.remove('warn');
+        badge.classList.add('ok');
+        badge.innerHTML = '<span class="vk-dot"></span> Clean';
+      } else {
+        empty.style.display = 'none';
+        pill.textContent = conflictList.length + ' file' + (conflictList.length !== 1 ? 's' : '');
+        badge.classList.remove('ok');
+        badge.classList.add('warn');
+        badge.innerHTML = '<span class="vk-dot warn"></span> Conflicts';
+        conflictList.slice(0, 100).forEach(c => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><code>${c.path}</code></td>
+            <td>${fmt(c.local_mtime)}</td>
+            <td>${fmt(c.remote_mtime)}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    // Initial load
+    reloadSync();
+  </script>
+</body>
+</html>
