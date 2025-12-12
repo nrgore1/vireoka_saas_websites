@@ -1,0 +1,13 @@
+:root {
+  --bg: #050914;
+  --glass: rgba(12,22,45,.55);
+
+  --text-main: #F6FAFF;
+  --text-soft: #C7D3E8;
+
+  --cyan: #5AC8FA;
+  --green: #7CF3C9;
+
+  --pill: 999px;
+  --glow: 0 0 40px rgba(124,243,201,.6);
+}

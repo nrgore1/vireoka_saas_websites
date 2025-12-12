@@ -75,3 +75,15 @@ notify "Completed successfully ✅"
 
 echo
 echo "✔ Sync complete for mode: $MODE"
+
+# ---- V5.2 EXTENSIONS ----
+"$BASE_DIR/vsync-preflight.sh"
+
+if [ "$MODE" = "dry" ]; then
+  "$BASE_DIR/vsync-dryrun.sh"
+  exit 0
+fi
+
+"$BASE_DIR/vsync-backup.sh"
+"$BASE_DIR/vsync-conflicts.sh"
+"$BASE_DIR/vsync-dashboard.sh"

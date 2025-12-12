@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mariadb:10.6
+    container_name: vireoka_db
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: unless-stopped
+
+  wordpress:
+    image: wordpress:php8.2-apache
+    container_name: vireoka_wp
+    ports:
+      - "8085:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./wp:/var/www/html
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  db_data:
