@@ -1,4 +1,3 @@
-cat <<'EOF' > vsync-preflight.sh
 #!/usr/bin/env bash
 set -e
 
@@ -19,6 +18,3 @@ echo
 echo "Sync Mode:          $SYNC_MODE"
 echo "RSYNC Options:      $RSYNC_OPTS"
 echo "------------------------------------------"
-EOF
-
-chmod +x vsync-preflight.sh

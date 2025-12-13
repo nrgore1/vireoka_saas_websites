@@ -1,4 +1,3 @@
-cat <<'EOF' > vsync-conflicts.sh
 #!/usr/bin/env bash
 set -e
 
@@ -22,6 +21,3 @@ cat <<JSON > "$LOCAL_CONFLICTS"
 JSON
 
 echo "📄 Conflict report written to $LOCAL_CONFLICTS"
-EOF
-
-chmod +x vsync-conflicts.sh

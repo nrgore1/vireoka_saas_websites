@@ -1,4 +1,3 @@
-cat <<'EOF' > vsync-backup.sh
 #!/usr/bin/env bash
 set -e
 
@@ -14,6 +13,3 @@ echo "🛡  Creating local backup at $BACKUP_DIR"
 rsync -a "$LOCAL_ROOT/wp-content/" "$BACKUP_DIR/wp-content/" >/dev/null
 
 echo "✅ Backup completed"
-EOF
-
-chmod +x vsync-backup.sh

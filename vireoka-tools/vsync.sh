@@ -87,3 +87,31 @@ fi
 "$BASE_DIR/vsync-backup.sh"
 "$BASE_DIR/vsync-conflicts.sh"
 "$BASE_DIR/vsync-dashboard.sh"
+
+# ---- V5.3 EXTENSIONS ----
+# Render HTML dashboard (local + best-effort remote publish)
+"$BASE_DIR/vsync-dashboard-html.sh" || true
+
+# If conflicts exist, generate AI-assisted resolution report (no changes applied)
+"$BASE_DIR/vsync-ai-resolve.sh" || true
+
+# =======================
+# V5.3 ADD-ONS HOOKS
+# =======================
+# Load secrets (Vault/.env/env) before doing anything networked
+if [ -x "$BASE_DIR/vsync-secrets.sh" ]; then
+  "$BASE_DIR/vsync-secrets.sh" || true
+fi
+
+# Optional: run CI validate locally by calling:
+#   ./vsync-ci-validate.sh
+#
+# Optional: generate HTML dashboard after each run:
+if [ -x "$BASE_DIR/vsync-dashboard-render.sh" ]; then
+  "$BASE_DIR/vsync-dashboard-render.sh" || true
+fi
+
+# Optional: generate AI-assisted conflict resolution after each run (best-effort)
+if [ -x "$BASE_DIR/vsync-ai-resolve.sh" ]; then
+  "$BASE_DIR/vsync-ai-resolve.sh" || true
+fi

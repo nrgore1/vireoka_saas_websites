@@ -1,4 +1,3 @@
-cat <<'EOF' > vsync-dashboard.sh
 #!/usr/bin/env bash
 set -e
 
@@ -19,6 +18,3 @@ cat <<JSON > "$LOCAL_STATUS"
 JSON
 
 echo "📊 Dashboard JSON updated"
-EOF
-
-chmod +x vsync-dashboard.sh
