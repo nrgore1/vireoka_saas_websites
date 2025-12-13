@@ -1,71 +1,54 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$BASE_DIR/vconfig.sh"
 
-echo "�� SYNC: WordPress Themes"
+echo "🎨 SYNC: WordPress Themes (V6 active-only, changed-only via rsync)"
 
-mkdir -p "$LOCAL_THEMES"
+mkdir -p "$LOCAL_THEMES" "$LOCAL_STATUS_DIR"
 
-TMP_REMOTE=$(mktemp /tmp/vk_themes_remote.XXXXXX)
-TMP_LOCAL=$(mktemp /tmp/vk_themes_local.XXXXXX)
+ALLOWLIST="$LOCAL_STATUS_DIR/active_themes.txt"
+"$BASE_DIR/vsync-active-list.sh" themes "$ALLOWLIST" || true
 
-# 1) Capture remote theme files
-ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" \
-  "cd \"$REMOTE_THEMES\" && find . -type f -printf '%P|%T@\\n'" \
-  > "$TMP_REMOTE" || echo "" > "$TMP_REMOTE"
-
-# 2) Capture local theme files
-cd "$LOCAL_THEMES" 2>/dev/null || mkdir -p "$LOCAL_THEMES" && cd "$LOCAL_THEMES"
-find . -type f -printf "%P|%T@\n" > "$TMP_LOCAL" || echo "" > "$TMP_LOCAL"
-
-REMOTE_SORT="${TMP_REMOTE}_sorted"
-LOCAL_SORT="${TMP_LOCAL}_sorted"
-sort "$TMP_REMOTE" > "$REMOTE_SORT"
-sort "$TMP_LOCAL" > "$LOCAL_SORT"
-
-NEW_REMOTE=$(comm -23 "$REMOTE_SORT" "$LOCAL_SORT" || true)
-NEW_LOCAL=$(comm -13 "$REMOTE_SORT" "$LOCAL_SORT" || true)
-
-# 3) Conflict Detection
-CONFLICTS=""
-while IFS='|' read -r path ts_remote; do
-  [ -z "$path" ] && continue
-  ts_local=$(grep "^$path|" "$LOCAL_SORT" | cut -d'|' -f2 || true)
-  if [ -n "$ts_local" ] && [ "$ts_local" != "$ts_remote" ]; then
-    CONFLICTS+="$path|$ts_local|$ts_remote"$'\n'
-  fi
-done < "$REMOTE_SORT"
-
-if [ -n "$CONFLICTS" ]; then
-  echo "⚠️  Theme conflicts detected:"
-  echo "$CONFLICTS" | sed 's/|/  →  /g'
-
-  printf '%s\n' "$CONFLICTS" > "$LOCAL_CONFLICTS"
-
-  ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" "mkdir -p \"$REMOTE_STATUS_DIR\"" || true
-  printf '%s\n' "$CONFLICTS" | ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" \
-    "cat > \"$REMOTE_CONFLICTS\"" || true
-fi
-
-# 4) Pull remote → local
-if [ -n "$NEW_REMOTE" ] || [ "$SYNC_MODE" = "pull-only" ]; then
-  echo "⬇️  Pulling theme updates..."
+if [ ! -s "$ALLOWLIST" ]; then
+  echo "ℹ️  No active theme list found. Falling back to full theme sync."
   "$RSYNC_BIN" $RSYNC_OPTS -e "$RSYNC_SSH" "${RSYNC_EXCLUDES[@]}" \
     "$REMOTE_USER@$REMOTE_HOST:$REMOTE_THEMES/" \
     "$LOCAL_THEMES/"
+  if [ "$SYNC_MODE" != "pull-only" ]; then
+    "$RSYNC_BIN" $RSYNC_OPTS -e "$RSYNC_SSH" "${RSYNC_EXCLUDES[@]}" \
+      "$LOCAL_THEMES/" \
+      "$REMOTE_USER@$REMOTE_HOST:$REMOTE_THEMES/"
+  fi
+  echo "✔ Themes sync complete."
+  exit 0
 fi
 
-# 5) Push local → remote
-if [ "$SYNC_MODE" != "pull-only" ] && [ -n "$NEW_LOCAL" ]; then
-  echo "⬆️  Pushing theme updates..."
+echo "✅ Active themes allowlist:"
+cat "$ALLOWLIST" | sed 's/^/ - /g'
+
+INCLUDES=()
+while read -r theme; do
+  [ -z "$theme" ] && continue
+  INCLUDES+=(--include "/$theme/***")
+done < "$ALLOWLIST"
+
+INCLUDES+=(--include "*/" --exclude "*")
+
+echo "⬇️  Pulling active theme updates (remote → local)..."
+"$RSYNC_BIN" $RSYNC_OPTS -e "$RSYNC_SSH" "${RSYNC_EXCLUDES[@]}" \
+  "${INCLUDES[@]}" \
+  "$REMOTE_USER@$REMOTE_HOST:$REMOTE_THEMES/" \
+  "$LOCAL_THEMES/"
+
+if [ "$SYNC_MODE" != "pull-only" ]; then
+  echo "⬆️  Pushing active theme updates (local → remote)..."
   "$BASE_DIR/vbackup.sh" || true
   "$RSYNC_BIN" $RSYNC_OPTS -e "$RSYNC_SSH" "${RSYNC_EXCLUDES[@]}" \
+    "${INCLUDES[@]}" \
     "$LOCAL_THEMES/" \
     "$REMOTE_USER@$REMOTE_HOST:$REMOTE_THEMES/"
 fi
-
-rm -f "$TMP_REMOTE" "$TMP_LOCAL" "$REMOTE_SORT" "$LOCAL_SORT"
 
 echo "✔ Themes sync complete."

@@ -1,0 +1,33 @@
+# Vire 6 Policy (Governed Autonomy)
+# - Safe defaults: code changes require approval; media/content can auto-resolve.
+# - Paths are evaluated against relative paths inside WP content tree (or full paths if provided).
+
+auto_resolve:
+  allow:
+    - "wp-content/uploads/**"
+    - "wp-content/themes/vireoka_core/assets/**"
+    - "wp-content/themes/vireoka_core/css/**"
+    - "wp-content/themes/vireoka_core/js/**"
+  deny:
+    - "wp-config.php"
+    - "wp-content/themes/**/functions.php"
+    - "wp-content/themes/**/style.css"
+    - "wp-content/plugins/**"
+    - "wp-content/mu-plugins/**"
+    - "**/*.php"
+
+require_approval:
+  risk: "HIGH"
+  paths:
+    - "wp-content/themes/**"
+    - "wp-content/plugins/**"
+    - "wp-content/mu-plugins/**"
+
+defaults:
+  prefer_for_uploads: "remote"
+  prefer_for_code: "local"
+
+llm:
+  provider: "openai"
+  model: "gpt-4.1-mini"
+  # Vire reads OPENAI_API_KEY from vault or environment
