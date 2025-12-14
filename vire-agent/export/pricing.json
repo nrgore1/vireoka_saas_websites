@@ -1,0 +1,50 @@
+{
+  "product_id": "dating-builder",
+  "target": "enterprise",
+  "complexity": 4,
+  "generated_at": "2025-12-12T22:45:42.296867Z",
+  "tiers": [
+    {
+      "name": "Starter",
+      "price_monthly": 164,
+      "features": [
+        "Core workflows",
+        "Standard support",
+        "Single workspace"
+      ],
+      "limits": {
+        "projects": 12,
+        "seats": 1
+      }
+    },
+    {
+      "name": "Pro",
+      "price_monthly": 264,
+      "features": [
+        "Everything in Starter",
+        "Automations",
+        "Advanced analytics",
+        "Priority support"
+      ],
+      "limits": {
+        "projects": 40,
+        "seats": 5
+      }
+    },
+    {
+      "name": "Enterprise",
+      "price_monthly": "Contact Sales",
+      "features": [
+        "SAML/SSO",
+        "Audit logs",
+        "Custom SLAs",
+        "Dedicated onboarding",
+        "Private deployment options"
+      ],
+      "limits": {
+        "projects": "Unlimited",
+        "seats": "Unlimited"
+      }
+    }
+  ]
+}

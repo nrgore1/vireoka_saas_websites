@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="rgba(59,130,246,.55)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,.12)"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#g)" stroke-width="1" opacity="0.85">
+    <path d="M40,60 L1160,60" />
+    <path d="M40,120 L1160,120" />
+    <path d="M40,180 L1160,180" />
+    <path d="M40,240 L1160,240" />
+    <path d="M40,300 L1160,300" />
+    <path d="M40,360 L1160,360" />
+    <path d="M40,420 L1160,420" />
+
+    <path d="M120,40 L120,480" />
+    <path d="M260,40 L260,480" />
+    <path d="M400,40 L400,480" />
+    <path d="M540,40 L540,480" />
+    <path d="M680,40 L680,480" />
+    <path d="M820,40 L820,480" />
+    <path d="M960,40 L960,480" />
+    <path d="M1100,40 L1100,480" />
+
+    <path d="M120,120 L260,60 L400,120 L540,60 L680,120 L820,60 L960,120 L1100,60" opacity="0.55"/>
+    <path d="M120,420 L260,480 L400,420 L540,480 L680,420 L820,480 L960,420 L1100,480" opacity="0.55"/>
+
+    <circle cx="260" cy="180" r="6" />
+    <circle cx="540" cy="240" r="6" />
+    <circle cx="820" cy="300" r="6" />
+  </g>
+</svg>

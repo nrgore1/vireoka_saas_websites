@@ -1,0 +1,15 @@
+<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Vireoka Orb</title>
+  <desc id="desc">Futuristic circular logo orb used as a brand accent.</desc>
+  <defs>
+    <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f9fafb" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#4f46e5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <circle cx="80" cy="80" r="64" fill="url(#orbGlow)" />
+  <circle cx="80" cy="80" r="70" fill="none" stroke="#22d3ee" stroke-opacity="0.5" stroke-width="2" />
+  <circle cx="80" cy="80" r="78" fill="none" stroke="#6366f1" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="4 6" />
+</svg>

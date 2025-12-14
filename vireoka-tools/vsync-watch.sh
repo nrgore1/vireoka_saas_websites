@@ -1,34 +1,17 @@
 #!/bin/bash
 set -e
-
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$BASE_DIR/vconfig.sh"
 
-echo "👀 Vireoka Watch Mode (plugins + themes)"
-echo "    Local root: $LOCAL_ROOT"
-echo
+echo "👀 Vire Watch (event-driven)"
+command -v inotifywait >/dev/null 2>&1 || { echo "❌ inotifywait not found. Install: sudo apt-get install -y inotify-tools"; exit 1; }
 
-if ! command -v inotifywait >/dev/null 2>&1; then
-  echo "❌ inotifywait not found. Install with:"
-  echo "   sudo apt install inotify-tools"
-  exit 1
-fi
-
-WATCH_PATHS=()
-[ -d "$LOCAL_PLUGINS" ] && WATCH_PATHS+=("$LOCAL_PLUGINS")
-[ -d "$LOCAL_THEMES" ] && WATCH_PATHS+=("$LOCAL_THEMES")
-
-if [ ${#WATCH_PATHS[@]} -eq 0 ]; then
-  echo "⚠️  No local plugins/themes folders found under $LOCAL_ROOT"
-  exit 0
-fi
-
-"$BASE_DIR/vsync-notify.sh" "Vireoka Watch" "Started watching for changes..." || true
-
-while true; do
-  inotifywait -r -e modify,create,delete,move "${WATCH_PATHS[@]}" >/dev/null 2>&1
-  echo
-  echo "🔄 Change detected → syncing..."
-  "$BASE_DIR/vsync.sh" plugins || true
-  "$BASE_DIR/vsync.sh" themes || true
+inotifywait -m -r -e modify,create,delete \
+  "$LOCAL_PLUGINS" "$LOCAL_THEMES" "$LOCAL_UPLOADS" |
+while read -r path event file; do
+  case "$path" in
+    *plugins*) bash "$BASE_DIR/vsync.sh" plugins ;;
+    *themes*)  bash "$BASE_DIR/vsync.sh" themes ;;
+    *uploads*) bash "$BASE_DIR/vsync.sh" uploads ;;
+  esac
 done

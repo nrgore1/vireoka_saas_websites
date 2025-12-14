@@ -1,0 +1,79 @@
+/* =========================
+   VIREOKA DESIGN SYSTEM
+========================= */
+
+:root {
+  --bg-dark: #0b0f1a;
+  --bg-panel: #12182a;
+  --accent: #7a4dff;
+  --accent-soft: #9b7cff;
+  --text-main: #ffffff;
+  --text-muted: #a9b0c2;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-header {
+  background: #0b0f1a;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.site-header .container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 20px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  margin-left: 20px;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: var(--accent);
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  color: #fff;
+}
+
+.hero {
+  background: linear-gradient(135deg,#5b2cff,#7a4dff);
+  padding: 96px 32px;
+}
+
+.hero .wrap {
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 720px;
+  color: rgba(255,255,255,0.9);
+}

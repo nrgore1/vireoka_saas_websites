@@ -1,0 +1,45 @@
+.hero {
+  padding: 140px 0;
+  background: radial-gradient(circle at top left, #0c1f3a, #050914);
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(90,200,250,.18);
+  color: #7ddcff;
+  font-size: 13px;
+  letter-spacing: .08em;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.05;
+  margin: 32px 0 24px;
+  color: #F6FAFF;
+  font-weight: 600;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 560px;
+  color: #C7D3E8;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 36px;
+  padding: 16px 34px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7CF3C9, #5AC8FA);
+  color: #051020;
+  font-weight: 600;
+  box-shadow: 0 0 40px rgba(124,243,201,.5);
+}

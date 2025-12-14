@@ -1,0 +1,71 @@
+{
+  "layouts": {
+    "umbrella_home": {
+      "sections": ["hero", "ecosystem_bento", "founders_note", "waitlist", "faq", "footer"]
+    },
+    "product_teaser": {
+      "sections": ["hero", "problem_solution", "features_grid", "how_it_works", "founders_note", "waitlist", "footer"]
+    },
+    "enterprise_b2b": {
+      "sections": ["hero", "proof_points", "security_compliance", "case_study", "pricing", "founders_note", "cta", "footer"]
+    }
+  },
+  "section_blocks": {
+    "hero": {
+      "pattern": "hero",
+      "blocks": ["headline", "subhead", "badges", "primary_cta", "secondary_cta", "neural_canvas_hint"]
+    },
+    "ecosystem_bento": {
+      "pattern": "bento",
+      "blocks": ["product_cards_6", "priority_badges", "coming_soon_badges"]
+    },
+    "problem_solution": {
+      "pattern": "split",
+      "blocks": ["problem", "solution", "why_now"]
+    },
+    "features_grid": {
+      "pattern": "grid",
+      "blocks": ["feature_6"]
+    },
+    "how_it_works": {
+      "pattern": "steps",
+      "blocks": ["steps_4"]
+    },
+    "proof_points": {
+      "pattern": "stats",
+      "blocks": ["metrics_6", "logos_strip"]
+    },
+    "security_compliance": {
+      "pattern": "cards",
+      "blocks": ["security_points", "ymyl_disclaimer_optional"]
+    },
+    "case_study": {
+      "pattern": "story",
+      "blocks": ["mini_case_study"]
+    },
+    "pricing": {
+      "pattern": "pricing",
+      "blocks": ["tiers_3", "fineprint"]
+    },
+    "faq": {
+      "pattern": "accordion",
+      "blocks": ["faq_6"]
+    },
+    "waitlist": {
+      "pattern": "cta_form",
+      "blocks": ["email_form", "trust_copy"]
+    },
+    "cta": {
+      "pattern": "cta_banner",
+      "blocks": ["cta_banner"]
+    },
+    "founders_note": {
+      "pattern": "eeat",
+      "blocks": ["founders_note"]
+    },
+    "footer": {
+      "pattern": "footer",
+      "blocks": ["links", "disclaimer_optional"]
+    }
+  }
+}

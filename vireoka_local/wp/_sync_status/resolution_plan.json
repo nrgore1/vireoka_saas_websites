@@ -1,0 +1,10 @@
+{
+  "vire_version": "6",
+  "summary": {
+    "total_conflicts": 0,
+    "auto_resolvable": 0,
+    "requires_human": 0
+  },
+  "policy": "vire_policy.yaml",
+  "items": []
+}

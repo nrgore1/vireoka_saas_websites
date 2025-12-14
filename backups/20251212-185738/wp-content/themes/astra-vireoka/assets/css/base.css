@@ -1,0 +1,8 @@
+body {
+  background: radial-gradient(circle at top, #0c1630, #050914);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, sans-serif;
+  margin: 0;
+}
+
+a { color: var(--cyan); text-decoration: none; }

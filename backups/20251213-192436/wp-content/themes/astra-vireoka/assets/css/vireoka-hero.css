@@ -1,0 +1,54 @@
+.hero {
+  padding: 140px 0;
+  position: relative;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 80px;
+}
+
+.badge {
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(90,200,250,.15);
+  color: var(--accent-cyan);
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin: 28px 0;
+}
+
+.cta-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.cta {
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+}
+
+.cta.primary {
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+  color: #051020;
+  box-shadow: var(--glow-strong);
+}
+
+.cta.secondary {
+  border: 1px solid rgba(90,200,250,.4);
+  color: var(--text-primary);
+}
+
+.hero-orb {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left,
+    var(--accent-cyan),
+    var(--accent-green));
+  box-shadow: 0 0 120px rgba(90,200,250,.55);
+}

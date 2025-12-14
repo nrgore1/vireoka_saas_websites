@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Vireoka Sync Dashboard (V5)</title>
+  <style>
+    :root{
+      --bg:#070B16;--panel:rgba(27,34,53,.78);--border:rgba(255,255,255,.08);
+      --text:#fff;--muted:#c7cbd4;--purple:#5A2FE3;--teal:#3AF4D3;--gold:#E4B448;
+      --grad:linear-gradient(90deg,#0A1A4A,#5A2FE3,#E4B448);
+      --grad2:linear-gradient(135deg,#5A2FE3,#3AF4D3);
+      --shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(900px circle at 20% 20%, rgba(90,47,227,.30), transparent 60%),
+        radial-gradient(900px circle at 80% 80%, rgba(58,244,211,.14), transparent 60%),
+        var(--bg);
+      color:var(--text)
+    }
+    header{border-bottom:1px solid var(--border);background:rgba(7,11,22,.6);backdrop-filter:blur(14px)}
+    .wrap{max-width:1180px;margin:0 auto;padding:24px}
+    .brand{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    h1{margin:0;font-size:22px;letter-spacing:-.02em;background:var(--grad);
+      -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;
+      border-radius:999px;border:1px solid var(--border);background:rgba(27,34,53,.50);
+      box-shadow:var(--shadow);font-weight:800}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--teal);
+      box-shadow:0 0 18px rgba(58,244,211,.45)}
+    .dot.bad{background:#EF4444;box-shadow:0 0 18px rgba(239,68,68,.45)}
+    main .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:18px}
+    .card{
+      grid-column:span 6;background:var(--panel);border:1px solid var(--border);
+      border-radius:18px;padding:18px;box-shadow:var(--shadow);position:relative
+    }
+    .card.full{grid-column:span 12}
+    .bar{height:3px;width:90px;border-radius:999px;background:var(--grad2);margin-bottom:12px}
+    h2{margin:0 0 10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+    .kv{display:grid;grid-template-columns:200px 1fr;gap:8px 14px}
+    .k{color:rgba(255,255,255,.65);font-size:13px}
+    .v{font-weight:700;font-size:13px;word-break:break-word}
+    pre{
+      margin:0;background:rgba(15,21,51,.55);border:1px solid var(--border);
+      border-radius:14px;padding:14px;overflow:auto;color:#e5e7eb;font-size:12px
+    }
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(228,180,72,.55);background:rgba(228,180,72,.12)}
+    .muted{color:var(--muted);font-size:12px}
+    @media(max-width:900px){.card{grid-column:span 12}.kv{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap brand">
+    <h1>Vireoka Sync Dashboard (V5)</h1>
+    <div class="pill"><span class="dot" id="statusDot"></span><span id="statusText">Loading…</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+
+    <section class="card">
+      <div class="bar"></div>
+      <h2>Run Summary</h2>
+      <div class="kv" id="summary"></div>
+    </section>
+
+    <section class="card">
+      <div class="bar"></div>
+      <h2>Active WordPress Assets</h2>
+      <div class="kv" id="assets"></div>
+      <p class="muted">Only these assets are eligible for sync.</p>
+    </section>
+
+    <section class="card full">
+      <div class="bar"></div>
+      <h2>Conflicts (Agent Input)</h2>
+      <pre id="conflicts">Loading…</pre>
+    </section>
+
+    <section class="card">
+      <div class="bar"></div>
+      <h2>Ignored by Design</h2>
+      <pre>
+• Inactive plugins
+• Inactive themes
+• Unchanged files (mtime-aware)
+• Vendor / cache / backups
+      </pre>
+    </section>
+
+    <section class="card">
+      <div class="bar"></div>
+      <h2>Operator Commands</h2>
+      <pre>
+./vsync.sh all
+./vsync.sh themes
+./vsync.sh plugins
+./vsync.sh uploads
+./vsync.sh dry
+./vsync-ai-resolve.sh
+      </pre>
+    </section>
+
+  </div>
+</main>
+
+<script>
+const $ = (id)=>document.getElementById(id);
+
+async function loadJson(u){
+  const r = await fetch(u,{cache:'no-store'});
+  if(!r.ok) throw new Error(u+' '+r.status);
+  return r.json();
+}
+
+(async()=>{
+  try{
+    const status = await loadJson('./status.json');
+    const pre = await loadJson('./.preflight.json').catch(()=>null);
+    const conf = await loadJson('./conflicts.json').catch(()=>null);
+
+    // Status pill
+    const ok = status.ok !== false;
+    $('statusDot').className = 'dot'+(ok?'':' bad');
+    $('statusText').textContent = ok?'OK':'ERROR';
+
+    // Summary
+    const s = $('summary');
+    s.innerHTML='';
+    [
+      ['timestamp', status.last_run||'—'],
+      ['mode', status.mode||'—'],
+      ['sync_mode', status.sync_mode||'—'],
+      ['remote_host', status.remote_host||'—']
+    ].forEach(([k,v])=>{
+      s.insertAdjacentHTML('beforeend',`<div class="k">${k}</div><div class="v">${v}</div>`);
+    });
+
+    // Assets
+    const a = $('assets');
+    a.innerHTML='';
+    if(pre){
+      a.insertAdjacentHTML('beforeend',`<div class="k">Active theme</div><div class="v">${pre.active_theme||'—'}</div>`);
+      if(pre.parent_theme){
+        a.insertAdjacentHTML('beforeend',`<div class="k">Parent theme</div><div class="v">${pre.parent_theme}</div>`);
+      }
+      a.insertAdjacentHTML('beforeend',`<div class="k">Active plugins</div><div class="v">${pre.active_plugins||'—'}</div>`);
+    } else {
+      a.insertAdjacentHTML('beforeend',`<div class="v">preflight.json missing</div>`);
+    }
+
+    $('conflicts').textContent = conf ? JSON.stringify(conf,null,2) : 'No conflicts detected';
+
+  }catch(e){
+    $('statusDot').className='dot bad';
+    $('statusText').textContent='LOAD FAILED';
+    $('conflicts').textContent=String(e);
+  }
+})();
+</script>
+</body>
+</html>

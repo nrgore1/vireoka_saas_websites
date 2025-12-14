@@ -1,0 +1,10 @@
+cache/
+*.zip
+*.log
+node_modules/
+*.tmp
+litespeed/
+wp-content/cache/
+wp-content/debug.log
+wp-content/uploads/cache/
+vendor/

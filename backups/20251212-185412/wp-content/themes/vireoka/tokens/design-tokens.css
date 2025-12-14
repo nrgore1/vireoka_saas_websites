@@ -1,0 +1,57 @@
+/* Vireoka Elite Neural Luxe — Design Tokens */
+:root{
+  /* Core palette */
+  --v-deep-blue:#0A1A4A;
+  --v-purple:#5A2FE3;
+  --v-gold:#E4B448;
+  --v-slate:#1B2235;
+  --v-white:#FFFFFF;
+  --v-graphite:#3E465D;
+  --v-mist:#C7CBD4;
+  --v-indigo:#7C5CFF;
+  --v-teal:#3AF4D3;
+
+  /* Gradients */
+  --v-gradient-neural:linear-gradient(135deg,#5A2FE3,#3AF4D3);
+  --v-gradient-luxe:linear-gradient(90deg,#0A1A4A,#5A2FE3,#E4B448);
+
+  /* Typography */
+  --v-font-heading:'Inter Tight',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --v-font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --v-font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+
+  /* Scale */
+  --v-radius-sm:8px;
+  --v-radius-md:12px;
+  --v-radius-lg:20px;
+
+  /* Shadows */
+  --v-shadow-gold:0 0 32px rgba(228,180,72,.55);
+  --v-shadow-purple:0 0 18px rgba(90,47,227,.45);
+  --v-shadow-panel:0 4px 24px rgba(0,0,0,.20);
+
+  /* Layout */
+  --v-container:1120px;
+  --v-pad:24px;
+
+  /* Neural canvas behavior */
+  --v-canvas-link:rgba(90,47,227,.35);
+  --v-canvas-dot:rgba(228,180,72,.55);
+  --v-canvas-strength:1; /* JS will modulate */
+}
+
+/* Product-specific token overrides */
+html[data-vireoka-product="atmasphere"]{
+  --v-canvas-link:rgba(58,244,211,.30);
+}
+html[data-vireoka-product="memoir"]{
+  --v-canvas-link:rgba(228,180,72,.25);
+  --v-canvas-dot:rgba(228,180,72,.70);
+}
+html[data-vireoka-product="finops"]{
+  --v-canvas-link:rgba(124,92,255,.30);
+}
+html[data-vireoka-product="quantum"]{
+  --v-canvas-link:rgba(90,47,227,.45);
+  --v-canvas-dot:rgba(58,244,211,.55);
+}

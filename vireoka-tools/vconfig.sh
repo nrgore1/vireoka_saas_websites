@@ -46,7 +46,9 @@ RSYNC_EXCLUDES=(
   --exclude="node_modules"
   --exclude="vendor"
 )
-
+export VIRE_REMOTE_WATCH=1
+export VIRE_UPLOADS_FLUSH_INTERVAL=90
+export VIRE_GIT_DEBOUNCE_SECONDS=60
 # -------- SYNC MODE --------
 # two-way | pull-only | push-only
 SYNC_MODE="two-way"
@@ -63,3 +65,40 @@ if [ ! -d "$LOCAL_ROOT/wp-content" ]; then
   echo "   $LOCAL_ROOT/wp-content"
   exit 1
 fi
+
+# -----------------------------
+# Vire 6.x speed controls
+# -----------------------------
+: "${VIRE_ACTIVE_ONLY:=1}"           # 1 => only active plugins/themes by default
+: "${VIRE_MANIFEST_CACHE:=1}"        # 1 => enable manifest caching (skip if unchanged)
+: "${VIRE_RSYNC_FAST:=1}"            # 1 => add faster rsync flags
+: "${VIRE_EVENT_DEBOUNCE_SEC:=2}"    # debounce for event-driven sync
+
+# Extra rsync flags (safe for WP assets)
+if [ "${VIRE_RSYNC_FAST}" = "1" ]; then
+  # NOTE: keep existing RSYNC_OPTS and append safe speed flags
+  RSYNC_OPTS="${RSYNC_OPTS:-} --omit-dir-times --no-perms --no-owner --no-group"
+fi
+
+# ==============================
+# VIRE PERFORMANCE TUNING
+# ==============================
+
+# Manifest cache
+MANIFEST_DIR="$LOCAL_STATUS_DIR/manifests"
+mkdir -p "$MANIFEST_DIR"
+
+# Fast rsync (WordPress-safe)
+RSYNC_OPTS="-az --delete-delay --inplace --no-perms --no-owner --no-group --omit-dir-times"
+
+# Git debounce
+GIT_DEBOUNCE_MIN_FILES=3
+GIT_DEBOUNCE_SECONDS=120
+
+# Watch / event tuning
+VIRE_REMOTE_WATCH="${VIRE_REMOTE_WATCH:-0}"
+VIRE_UPLOADS_LOW_PRIORITY=1
+
+# AI prewarm (passive)
+VIRE_AI_PREDICT=1
+

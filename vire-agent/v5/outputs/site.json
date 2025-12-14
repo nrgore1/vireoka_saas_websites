@@ -1,0 +1,107 @@
+{
+  "site_id": "datingplatformbuilder-local",
+  "product_name": "Dating Platform Builder",
+  "tone": "elite-neural-luxe",
+  "base_url": "http://localhost:8085",
+  "pages": [
+    {
+      "title": "Home",
+      "slug": "home",
+      "meta_title": "Vireoka | Dating Platform Builder",
+      "meta_description": "Agentic AI websites. AI agent frameworks, Greenfield AI opportunities.",
+      "h1": "Dating Platform Builder \u2014 Built with Agentic AI",
+      "sections": [
+        {
+          "type": "hero",
+          "headline": "De-risking innovation through Agentic AI",
+          "subhead": "AI agent frameworks for real outcomes. Greenfield AI opportunities at scale.",
+          "bullets": [
+            "Fast launch",
+            "SEO-ready",
+            "Modular theme system"
+          ],
+          "ctas": [
+            {
+              "label": "Join Waitlist",
+              "href": "#waitlist"
+            }
+          ]
+        },
+        {
+          "type": "eeat",
+          "headline": "Founder\u2019s Note",
+          "subhead": "I\u2019m building Vireoka as a compounding portfolio of AI products with rigorous engineering and responsible deployment.",
+          "bullets": [
+            "Execution-first",
+            "Security-minded",
+            "Investor-grade reporting"
+          ]
+        },
+        {
+          "type": "cta_form",
+          "headline": "Investor / Early Access",
+          "subhead": "Get on the waitlist for private demos and early partner access.",
+          "bullets": [
+            "Email capture",
+            "Priority access",
+            "Updates"
+          ],
+          "ctas": [
+            {
+              "label": "Subscribe",
+              "href": "#waitlist"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Products",
+      "slug": "products",
+      "meta_title": "Vireoka Products",
+      "meta_description": "AI agent frameworks across AtmaSphere, dating platform creator, and quantum secure stablecoin.",
+      "h1": "Vireoka Ecosystem",
+      "sections": [
+        {
+          "type": "grid",
+          "headline": "Portfolio",
+          "subhead": "AI agent frameworks across verticals.",
+          "cards": [
+            {
+              "title": "AtmaSphere LLM",
+              "text": "Aligned reasoning + RAG.",
+              "badge": "Priority/Beta"
+            },
+            {
+              "title": "Dating Platform Builder",
+              "text": "Niche dating platform creator.",
+              "badge": "Priority/Beta"
+            },
+            {
+              "title": "Quantum-Secure Stablecoin",
+              "text": "Quantum secure finance stack.",
+              "badge": "Priority/Beta"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "schema": {
+    "organization": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Vireoka LLC",
+      "url": "https://vireoka.com"
+    },
+    "software_app": {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Dating Platform Builder",
+      "applicationCategory": "BusinessApplication"
+    }
+  },
+  "generated_at": "2025-12-13T01:17:30.717787+00:00",
+  "generator": "vire-agentic-v5",
+  "llm_status": "fallback:missing OPENAI_API_KEY"
+}

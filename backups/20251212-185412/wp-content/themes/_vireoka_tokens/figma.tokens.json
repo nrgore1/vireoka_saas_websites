@@ -1,0 +1,31 @@
+{
+  "colors": {
+    "blueDeep": "#0A1A4A",
+    "purpleNeural": "#5A2FE3",
+    "goldQuantum": "#E4B448",
+    "slateMidnight": "#1B2235",
+    "whitePure": "#FFFFFF",
+    "indigoSoft": "#7C5CFF",
+    "grayMist": "#C7CBD4",
+    "graphite": "#3E465D",
+    "tealElectric": "#3AF4D3"
+  },
+  "gradients": {
+    "neural": "linear-gradient(135deg, #5A2FE3, #3AF4D3)",
+    "luxe": "linear-gradient(90deg, #0A1A4A, #5A2FE3, #E4B448)"
+  },
+  "type": {
+    "heading": "Inter Tight",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "scale": {
+    "h1": 64,
+    "h2": 48,
+    "h3": 36,
+    "h4": 24,
+    "bodyL": 18,
+    "bodyM": 16,
+    "bodyS": 14
+  }
+}

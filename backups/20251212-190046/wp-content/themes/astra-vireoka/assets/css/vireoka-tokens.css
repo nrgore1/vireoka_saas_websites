@@ -1,0 +1,15 @@
+:root {
+  --bg-deep: #050914;
+  --bg-glass: rgba(10,20,40,0.55);
+
+  --text-primary: #F6FAFF;
+  --text-secondary: #C9D4E6;
+
+  --accent-cyan: #5AC8FA;
+  --accent-green: #7CF3C9;
+
+  --glow-soft: 0 0 18px rgba(90,200,250,.35);
+  --glow-strong: 0 0 40px rgba(124,243,201,.75);
+
+  --radius-pill: 999px;
+}

@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-12-13T18:42:50Z",
+  "conflicts_file": "/mnt/c/Projects2025/vireoka_website/vireoka_local/wp/_sync_status/conflicts.json",
+  "conflict": true,
+  "sync_mode": "two-way",
+  "git_summary": "M apply_atmasphere_patch.sh\n M vireoka-tools/vconfig.sh\n M vireoka-tools/vsync-plugins.sh\n M vireoka-tools/vsync-themes.sh\n M vireoka-tools/vsync-uploads.sh\n M vireoka_local/wp/_sync_status/conflicts.json\n M vireoka_local/wp/_sync_status/status.json\n?? .vault.env\n?? backups/\n?? extend_vire_platform.sh\n?? setup_vireoka.sh\n?? site.json\n?? vire-agent/\n?? vire_complete_platform.sh\n?? vire_v2_install.sh\n?? vire_v3_install.sh\n?? vire_v4_install.sh\n?? vire_v5_agentic_patch.sh\n?? vire_v5_install.sh\n?? vireoka-tools.BACKUP.1765552611/\n?? vireoka-tools.zip\n?? vireoka-tools/.preflight.json\n?? vireoka-tools/vsync-eventd.sh\n?? vireoka-tools/vsync-hash.sh\n?? vireoka_local/wp/_backups/20251213_133743/\n?? vireoka_local/wp/_sync_status/dashboard.html\n?? vireoka_pull.sh\n?? vireoka_push.sh\n?? vireoka_web/",
+  "heuristic": {
+    "decision": "review_required",
+    "reason": "Conflict detected: local and remote content hashes differ.",
+    "recommended_next": [
+      "Run a DRY-RUN and inspect rsync output for affected files.",
+      "If you intentionally changed LOCAL and want it to win: set SYNC_MODE=push-only for one run.",
+      "If remote is source of truth: set SYNC_MODE=pull-only for one run.",
+      "If unsure: take a backup, then pull remote into a separate temp folder and diff."
+    ],
+    "one_run_commands": [
+      "./vsync.sh dry",
+      "SYNC_MODE=push-only ./vsync.sh all",
+      "SYNC_MODE=pull-only ./vsync.sh all"
+    ]
+  },
+  "ai_advice": null
+}

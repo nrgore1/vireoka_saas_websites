@@ -1,0 +1,310 @@
+/* ==========================================================
+ * Vireoka Branding Tokens
+ * Global color system + typography + background treatments
+ * Used by all product pages (AtmaSphere, FinOps, Memoir, etc.)
+ * ======================================================= */
+
+:root {
+    /* Base neutrals */
+    --vireoka-bg:        #020617;
+    --vireoka-surface:   #020617;
+    --vireoka-surface-soft: #020918;
+    --vireoka-border-subtle: rgba(148, 163, 184, 0.25);
+    --vireoka-border-strong: rgba(148, 163, 184, 0.45);
+    --vireoka-text-main: #e5e7eb;
+    --vireoka-text-soft: #9ca3af;
+    --vireoka-text-faint: #6b7280;
+
+    /* Brand primaries */
+    --vireoka-primary:        #38bdf8; /* cyan */
+    --vireoka-primary-soft:   rgba(56, 189, 248, 0.12);
+    --vireoka-primary-strong: #0ea5e9;
+
+    /* Accent set – reused per product style */
+    --vireoka-accent-1: #a855f7; /* purple */
+    --vireoka-accent-2: #eab308; /* amber */
+    --vireoka-accent-3: #22c55e; /* green */
+    --vireoka-accent-4: #f97316; /* orange */
+    --vireoka-accent-5: #f97373; /* soft red */
+
+    /* Glows */
+    --vireoka-glow-cyan:   0 0 120px rgba(56, 189, 248, 0.25);
+    --vireoka-glow-purple: 0 0 120px rgba(168, 85, 247, 0.28);
+    --vireoka-glow-green:  0 0 120px rgba(34, 197, 94, 0.28);
+
+    /* Radius */
+    --vireoka-radius-pill: 999px;
+    --vireoka-radius-card: 24px;
+
+    /* Layout */
+    --vireoka-max-width: 1120px;
+
+    /* Fonts */
+    --vireoka-font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", "Segoe UI", sans-serif;
+}
+
+/* Global page wrapper (builder should wrap sections in this) */
+.vireoka-page {
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.14), transparent 55%),
+                var(--vireoka-bg);
+    color: var(--vireoka-text-main);
+    font-family: var(--vireoka-font-main);
+    min-height: 100vh;
+}
+
+/* Container utility */
+.vireoka-container {
+    max-width: var(--vireoka-max-width);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+}
+
+/* ========================
+ * Style variants A–F
+ * These are applied via .vireoka-style-X on wrapper
+ * ===================== */
+
+/* Style A – AtmaSphere LLM: cyan + purple, cosmic */
+.vireoka-style-A .vireoka-hero {
+    background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25), transparent 60%),
+                radial-gradient(circle at right, rgba(168, 85, 247, 0.30), transparent 60%);
+    box-shadow: var(--vireoka-glow-cyan), var(--vireoka-glow-purple);
+}
+.vireoka-style-A .vireoka-pill,
+.vireoka-style-A .vireoka-badge {
+    border-color: rgba(56, 189, 248, 0.4);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+/* Style B – Suite / Platform: neutral + cyan outline cards */
+.vireoka-style-B .vireoka-card {
+    border-color: rgba(148, 163, 184, 0.4);
+}
+.vireoka-style-B .vireoka-card--primary {
+    border-color: rgba(56, 189, 248, 0.7);
+    box-shadow: var(--vireoka-glow-cyan);
+}
+
+/* Style C – AtmaSphere Product: focus on gradients & chips */
+.vireoka-style-C .vireoka-chip {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(168, 85, 247, 0.14));
+    border-color: rgba(148, 163, 184, 0.4);
+}
+
+/* Style D – FinOps AI: green + amber */
+.vireoka-style-D .vireoka-hero {
+    background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 60%),
+                radial-gradient(circle at bottom right, rgba(234, 179, 8, 0.16), transparent 60%);
+    box-shadow: var(--vireoka-glow-green);
+}
+.vireoka-style-D .vireoka-kpi-value {
+    color: #bbf7d0;
+}
+
+/* Style E – Memoir Studio: warm + editorial */
+.vireoka-style-E .vireoka-hero {
+    background: radial-gradient(circle at top, rgba(249, 115, 22, 0.24), transparent 60%),
+                radial-gradient(circle at bottom, rgba(234, 179, 8, 0.18), transparent 65%);
+}
+.vireoka-style-E .vireoka-tagline {
+    font-style: italic;
+}
+
+/* Style F – Hybrid (D + E) for Stablecoin / Quantum products */
+.vireoka-style-F .vireoka-hero {
+    background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.20), transparent 55%),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.22), transparent 60%),
+        radial-gradient(circle at bottom, rgba(234, 179, 8, 0.16), transparent 60%);
+    box-shadow: var(--vireoka-glow-green), var(--vireoka-glow-cyan);
+}
+.vireoka-style-F .vireoka-badge--quantum {
+    border-color: rgba(56, 189, 248, 0.7);
+    color: #e0f2fe;
+}
+
+/* ========================
+ * Base hero + typography
+ * ===================== */
+
+.vireoka-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    padding: 3rem clamp(2rem, 4vw, 3.5rem);
+    border: 1px solid var(--vireoka-border-subtle);
+    background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98));
+}
+
+.vireoka-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--vireoka-radius-pill);
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    background: rgba(15, 23, 42, 0.9);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vireoka-text-soft);
+}
+
+.vireoka-hero-title {
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.vireoka-hero-highlight {
+    background: linear-gradient(120deg, #38bdf8, #a855f7);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.vireoka-hero-body {
+    max-width: 38rem;
+    color: var(--vireoka-text-soft);
+    font-size: 0.98rem;
+}
+
+/* ========================
+ * Sections + grids
+ * ===================== */
+
+.vireoka-section {
+    margin-top: 3.5rem;
+}
+
+.vireoka-section-title {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--vireoka-text-faint);
+    margin-bottom: 0.75rem;
+}
+
+.vireoka-section-heading {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.vireoka-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .vireoka-grid--2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .vireoka-grid--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* ========================
+ * Chips, badges, bullets
+ * ===================== */
+
+.vireoka-pill,
+.vireoka-badge,
+.vireoka-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--vireoka-radius-pill);
+    border: 1px solid var(--vireoka-border-subtle);
+    background: rgba(15, 23, 42, 0.95);
+    font-size: 0.75rem;
+    color: var(--vireoka-text-soft);
+}
+
+.vireoka-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: radial-gradient(circle, #38bdf8, transparent 60%);
+}
+
+/* ========================
+ * Cards
+ * ===================== */
+
+.vireoka-card {
+    position: relative;
+    padding: 1.25rem 1.3rem;
+    border-radius: var(--vireoka-radius-card);
+    border: 1px solid var(--vireoka-border-subtle);
+    background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+}
+
+.vireoka-card-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vireoka-text-faint);
+    margin-bottom: 0.25rem;
+}
+
+.vireoka-card-title {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.vireoka-card-body {
+    font-size: 0.9rem;
+    color: var(--vireoka-text-soft);
+}
+
+/* ========================
+ * CTA buttons
+ * ===================== */
+
+.vireoka-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.vireoka-btn-primary,
+.vireoka-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.3rem;
+    border-radius: var(--vireoka-radius-pill);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.vireoka-btn-primary {
+    background: linear-gradient(120deg, #38bdf8, #a855f7);
+    color: #0b1120;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9), var(--vireoka-glow-cyan);
+}
+
+.vireoka-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 1), var(--vireoka-glow-cyan);
+}
+
+.vireoka-btn-ghost {
+    border-color: rgba(148, 163, 184, 0.55);
+    background: rgba(15, 23, 42, 0.9);
+    color: var(--vireoka-text-main);
+}
+
+.vireoka-btn-ghost:hover {
+    border-color: rgba(56, 189, 248, 0.7);
+}

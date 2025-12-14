@@ -1,7 +1,9 @@
-module.exports = { output: 'export', distDir: 'dist' };
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+  output: "export",
+  distDir: "dist",
+  reactStrictMode: true,
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;

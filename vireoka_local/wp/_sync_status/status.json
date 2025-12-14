@@ -1,7 +1,9 @@
 {
-  "last_run": "2025-12-13T00:48:18Z",
-  "mode": "all",
-  "sync_mode": "two-way",
-  "remote_host": "45.137.159.84",
-  "ok": true
+  "project": "Vireoka",
+  "timestamp": "2025-12-13T18:42:04Z",
+  "mode": "two-way",
+  "local_root": "/mnt/c/Projects2025/vireoka_website/vireoka_local/wp",
+  "remote_root": "/home/u814009065/domains/vireoka.com/public_html",
+  "git_auto_push": true,
+  "status": "ok"
 }

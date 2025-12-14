@@ -1,0 +1,22 @@
+/* Gutenberg styles for Vireoka (front + editor) */
+.is-style-vireoka-card {
+  background: linear-gradient(180deg, rgba(27,34,53,.92), rgba(15,21,51,.78));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.20);
+  padding: 32px;
+}
+
+.wp-block-button.is-style-vireoka-neural .wp-block-button__link {
+  background: linear-gradient(135deg, #5A2FE3, #3AF4D3);
+  color: #fff !important;
+  border-radius: 12px;
+  padding: 14px 26px;
+  font-weight: 700;
+  box-shadow: 0 0 32px rgba(228,180,72,.55);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.wp-block-columns.is-style-vireoka-feature-grid {
+  gap: 32px;
+}

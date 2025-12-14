@@ -1,21 +1,21 @@
+import { theme } from "./vire/ui/theme";
+
 export const metadata = {
-  title: "Vire Admin Console",
-  description: "Agentic control plane for WordPress & AI operations",
+  title: "Vire 6 Admin Console",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{
-        margin: 0,
-        background: "#020617",
-        color: "#E5E7EB",
-        fontFamily: "Inter, system-ui, sans-serif"
-      }}>
+      <body
+        style={{
+          margin: 0,
+          background: `radial-gradient(900px circle at 20% 20%, rgba(56,189,248,.08), transparent 60%), ${theme.bg}`,
+          color: theme.text,
+          fontFamily: theme.font,
+          lineHeight: 1.6,
+        }}
+      >
         {children}
       </body>
     </html>

@@ -1,8 +1,8 @@
-astra-sites
 elementor
 essential-addons-for-elementor-lite
 fix-elementor-bodyclass
 ultimate-addons-for-gutenberg
+astra-sites
 vireoka-branding
 vireoka-core
 vireoka-elementor

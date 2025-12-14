@@ -1,0 +1,109 @@
+/* Vireoka UI Kit – structural helpers built on top of branding tokens */
+
+.vireoka-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vireoka-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Simple responsive split layout */
+.vireoka-split {
+    display: grid;
+    gap: 1.75rem;
+}
+@media (min-width: 900px) {
+    .vireoka-split {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: stretch;
+    }
+}
+
+/* KPI row */
+.vireoka-kpi-row {
+    display: grid;
+    gap: 1rem;
+}
+@media (min-width: 640px) {
+    .vireoka-kpi-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+.vireoka-kpi {
+    padding: 0.9rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--vireoka-border-subtle);
+    background: rgba(15, 23, 42, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+.vireoka-kpi-label {
+    font-size: 0.75rem;
+    color: var(--vireoka-text-soft);
+}
+.vireoka-kpi-value {
+    font-weight: 600;
+}
+
+/* Divider section label */
+.vireoka-divider-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--vireoka-text-faint);
+    letter-spacing: 0.16em;
+}
+.vireoka-divider-label::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(148, 163, 184, 0.7), transparent);
+}
+
+/* Small list styling */
+.vireoka-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.vireoka-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    padding-block: 0.25rem;
+}
+.vireoka-list-bullet {
+    margin-top: 0.35rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: radial-gradient(circle, #38bdf8, transparent 60%);
+}
+
+/* Tag cloud */
+.vireoka-tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+/* Small label pill */
+.vireoka-tag {
+    padding: 0.2rem 0.7rem;
+    border-radius: var(--vireoka-radius-pill);
+    border: 1px solid var(--vireoka-border-subtle);
+    font-size: 0.75rem;
+    color: var(--vireoka-text-soft);
+    background: rgba(15, 23, 42, 0.9);
+}

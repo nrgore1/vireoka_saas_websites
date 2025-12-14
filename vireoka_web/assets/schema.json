@@ -1,0 +1,57 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Vireoka LLC",
+      "url": "https://vireoka.com",
+      "logo": "https://vireoka.com/wp-content/uploads/logo.png",
+      "description": "Vireoka builds AI-agent ecosystems across communication, creativity, cloud, finance, and human connection.",
+      "sameAs": [
+        "https://www.linkedin.com/company/vireoka"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "AtmaSphere LLM",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "An aligned intelligence engine for multi-agent reasoning and safe outcome orchestration."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Business Comm Training",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web",
+      "description": "Communication and debate coaching with AI agents for viral clarity and persuasion."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Niche Dating Platform Creator",
+      "applicationCategory": "SocialNetworkingApplication",
+      "operatingSystem": "Web",
+      "description": "A niche dating platform creator that generates invitation-first communities and matchmaking systems."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Memoir Creation Platform",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "description": "A memoir creation platform that turns life stories into print-ready coffee-table books."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Cloud Infrastructure Cost Reducer",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Autonomous FinOps intelligence for continuous cloud cost reduction and GPU/CPU optimization."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Quantum-Secure Stablecoin",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "description": "A quantum secure stablecoin concept for future-proof, compliant digital finance."
+    }
+  ]
+}

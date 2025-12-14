@@ -10,7 +10,7 @@ if [[ -z "$PATCH_FILE" ]]; then
     exit 1
 fi
 
-if [[ ! -f "$MISSING_FILE" ]]; then
+if [[ ! -f "$MISSING_FILE" ]]; thencd domoans
     echo "❌ missing_files.txt not found. Run verify_atmasphere_install.sh first."
     exit 1
 fi

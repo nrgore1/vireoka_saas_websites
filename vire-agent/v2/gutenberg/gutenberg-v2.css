@@ -1,0 +1,18 @@
+:root{
+  --v2-deep-blue:#0A1A4A;
+  --v2-neural-purple:#5A2FE3;
+  --v2-quantum-gold:#E4B448;
+  --v2-electric-teal:#3AF4D3;
+}
+
+.vire-site{
+  background:linear-gradient(180deg,#0A1A4A,#020617);
+  color:#fff;
+  padding:32px;
+}
+
+.vire-neural-host{
+  margin:20px 0;
+  border-radius:16px;
+  overflow:hidden;
+}

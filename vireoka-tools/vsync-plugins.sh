@@ -1,59 +1,44 @@
 #!/bin/bash
-set -euo pipefail
-
+set -e
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$BASE_DIR/vconfig.sh"
 
-echo "🔌 SYNC: Plugins (V6 active-only, changed-only via rsync)"
+echo "🔌 SYNC: Plugins (delta)"
 
-mkdir -p "$LOCAL_PLUGINS" "$LOCAL_STATUS_DIR"
+MANIFEST="$MANIFEST_DIR/plugins.manifest"
 
-ALLOWLIST="$LOCAL_STATUS_DIR/active_plugins.txt"
-"$BASE_DIR/vsync-active-list.sh" plugins "$ALLOWLIST" || true
+REMOTE_HASH=$(ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" \
+  "cd \"$REMOTE_PLUGINS\" && find . -type f -printf '%P|%T@\n' | sha1sum" \
+  | awk '{print $1}')
 
-# If allowlist is empty -> fallback to full folder sync
-if [ ! -s "$ALLOWLIST" ]; then
-  echo "ℹ️  No active plugin list found. Falling back to full plugin sync."
-  "$RSYNC_BIN" $RSYNC_OPTS -e "$RSYNC_SSH" "${RSYNC_EXCLUDES[@]}" \
-    "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PLUGINS/" \
-    "$LOCAL_PLUGINS/"
-  if [ "$SYNC_MODE" != "pull-only" ]; then
-    "$RSYNC_BIN" $RSYNC_OPTS -e "$RSYNC_SSH" "${RSYNC_EXCLUDES[@]}" \
-      "$LOCAL_PLUGINS/" \
-      "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PLUGINS/"
-  fi
-  echo "✔ Plugins sync complete."
+LOCAL_HASH="$(cat "$MANIFEST" 2>/dev/null || true)"
+
+if [ "$REMOTE_HASH" = "$LOCAL_HASH" ]; then
+  echo "⚡ Plugins unchanged — manifest hit"
   exit 0
 fi
 
-echo "✅ Active plugins allowlist:"
-cat "$ALLOWLIST" | sed 's/^/ - /g'
+echo "$REMOTE_HASH" > "$MANIFEST"
 
-# Build rsync include rules: include each active plugin folder, exclude everything else
-INCLUDES=()
-while read -r plugin; do
-  [ -z "$plugin" ] && continue
-  INCLUDES+=(--include "/$plugin/***")
-done < "$ALLOWLIST"
+ACTIVE_PLUGINS="$LOCAL_STATUS_DIR/active_plugins.txt"
+ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_HOST" \
+  "wp plugin list --status=active --field=name --path=\"$REMOTE_ROOT\"" \
+  > "$ACTIVE_PLUGINS" || true
 
-# Always include top-level dirs so rsync can traverse
-INCLUDES+=(--include "*/" --exclude "*")
+RSYNC_FILTERS=()
+if [ -s "$ACTIVE_PLUGINS" ]; then
+  while read -r p; do
+    [ -z "$p" ] && continue
+    RSYNC_FILTERS+=(--include="/$p/**")
+  done < "$ACTIVE_PLUGINS"
+fi
+# Always include a minimal allowlist for WP’s plugin root files
+RSYNC_FILTERS+=(--include="/index.php" --include="/**/.gitkeep")
+RSYNC_FILTERS+=(--exclude="*")
 
-# Pull remote → local (only active plugin dirs; rsync only writes changed files)
-echo "⬇️  Pulling active plugin updates (remote → local)..."
-"$RSYNC_BIN" $RSYNC_OPTS -e "$RSYNC_SSH" "${RSYNC_EXCLUDES[@]}" \
-  "${INCLUDES[@]}" \
+"$RSYNC_BIN" $RSYNC_OPTS \
+  "${RSYNC_FILTERS[@]}" \
   "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PLUGINS/" \
   "$LOCAL_PLUGINS/"
 
-# Push local → remote (only if not pull-only)
-if [ "$SYNC_MODE" != "pull-only" ]; then
-  echo "⬆️  Pushing active plugin updates (local → remote)..."
-  "$BASE_DIR/vbackup.sh" || true
-  "$RSYNC_BIN" $RSYNC_OPTS -e "$RSYNC_SSH" "${RSYNC_EXCLUDES[@]}" \
-    "${INCLUDES[@]}" \
-    "$LOCAL_PLUGINS/" \
-    "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PLUGINS/"
-fi
-
-echo "✔ Plugins sync complete."
+echo "✔ Plugins synced (active-only when available)"

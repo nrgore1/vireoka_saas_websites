@@ -1,0 +1,16 @@
+/* Generated token parity file (starter). Keep in sync with figma.tokens.json */
+:root{
+  --blue-deep:#0A1A4A;
+  --purple-neural:#5A2FE3;
+  --gold-quantum:#E4B448;
+  --slate-midnight:#1B2235;
+  --white-pure:#FFFFFF;
+
+  --indigo-soft:#7C5CFF;
+  --gray-mist:#C7CBD4;
+  --graphite:#3E465D;
+  --teal-electric:#3AF4D3;
+
+  --gradient-neural:linear-gradient(135deg,#5A2FE3,#3AF4D3);
+  --gradient-luxe:linear-gradient(90deg,#0A1A4A,#5A2FE3,#E4B448);
+}
